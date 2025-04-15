@@ -1,0 +1,29 @@
+Table,Field Name,Field Alias
+main.data_2023_acs_acs5_subject_County,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_subject_County,GEO_ID,Geography
+main.data_2023_acs_acs5_subject_County,NAME,NAME
+main.data_2023_acs_acs5_subject_County,S2704_C03_001E,Estimate Percent Public Coverage Civilian noninstitutionalized population
+main.data_2023_acs_acs5_subject_County,S2704_C03_006E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION Medicaid/means-tested public coverage alone or in combination
+main.data_2023_acs_acs5_subject_County,S2704_C03_002E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION Medicare coverage alone or in combination
+main.data_2023_acs_acs5_subject_County,S2704_C03_010E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION VA health care coverage alone or in combination
+main.data_2023_acs_acs5_subject_County,state,state
+main.data_2023_acs_acs5_subject_County,county,county
+main.data_2023_acs_acs5_subject_Fields,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_subject_Fields,index_,index
+main.data_2023_acs_acs5_subject_Fields,label,label
+main.data_2023_acs_acs5_subject_Fields,concept,concept
+main.data_2023_acs_acs5_subject_Fields,predicateType,predicateType
+main.data_2023_acs_acs5_subject_Fields,group_,group
+main.data_2023_acs_acs5_subject_Fields,limit_,limit
+main.data_2023_acs_acs5_subject_Fields,predicateOnly,predicateOnly
+main.data_2023_acs_acs5_subject_Fields,hasGeoCollectionSupport,hasGeoCollectionSupport
+main.data_2023_acs_acs5_subject_Fields,attributes,attributes
+main.data_2023_acs_acs5_subject_Fields,required,required
+main.data_2023_acs_acs5_subject_State,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_subject_State,GEO_ID,Geography
+main.data_2023_acs_acs5_subject_State,NAME,NAME
+main.data_2023_acs_acs5_subject_State,S2704_C03_001E,Estimate Percent Public Coverage Civilian noninstitutionalized population
+main.data_2023_acs_acs5_subject_State,S2704_C03_006E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION Medicaid/means-tested public coverage alone or in combination
+main.data_2023_acs_acs5_subject_State,S2704_C03_002E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION Medicare coverage alone or in combination
+main.data_2023_acs_acs5_subject_State,S2704_C03_010E,Estimate Percent Public Coverage COVERAGE ALONE OR IN COMBINATION VA health care coverage alone or in combination
+main.data_2023_acs_acs5_subject_State,state,state
