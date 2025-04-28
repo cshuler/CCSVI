@@ -1,0 +1,39 @@
+Table,Field Name,Field Alias
+main.data_2022_acs_acs5_CBG,OBJECTID,OBJECTID
+main.data_2022_acs_acs5_CBG,GEO_ID,Geography
+main.data_2022_acs_acs5_CBG,NAME,NAME
+main.data_2022_acs_acs5_CBG,B01001_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B25003_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B01003_001E,Estimate Total
+main.data_2022_acs_acs5_CBG,C16001_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,C16002_013E,Estimate Total: Other languages: Limited English speaking household
+main.data_2022_acs_acs5_CBG,C16002_014E,Estimate Total: Other languages: Not a limited English speaking household
+main.data_2022_acs_acs5_CBG,B28011_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B28011_008E,Estimate Total: No Internet access
+main.data_2022_acs_acs5_CBG,B25046_001E,Estimate Aggregate number of vehicles available:
+main.data_2022_acs_acs5_CBG,B27010_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B27010_002E,Estimate Total: Under 19 years:
+main.data_2022_acs_acs5_CBG,B27010_017E,Estimate Total: Under 19 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_018E,Estimate Total: 19 to 34 years:
+main.data_2022_acs_acs5_CBG,B27010_033E,Estimate Total: 19 to 34 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_034E,Estimate Total: 35 to 64 years:
+main.data_2022_acs_acs5_CBG,B27010_050E,Estimate Total: 35 to 64 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_051E,Estimate Total: 65 years and over:
+main.data_2022_acs_acs5_CBG,B27010_066E,Estimate Total: 65 years and over: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B17001_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B17001_002E,Estimate Total: Income in the past 12 months below poverty level:
+main.data_2022_acs_acs5_CBG,state,state
+main.data_2022_acs_acs5_CBG,county,county
+main.data_2022_acs_acs5_CBG,tract,tract
+main.data_2022_acs_acs5_CBG,block_group,block group
+main.data_2022_acs_acs5_Fields,OBJECTID,OBJECTID
+main.data_2022_acs_acs5_Fields,index_,index
+main.data_2022_acs_acs5_Fields,label,label
+main.data_2022_acs_acs5_Fields,concept,concept
+main.data_2022_acs_acs5_Fields,predicateType,predicateType
+main.data_2022_acs_acs5_Fields,group_,group
+main.data_2022_acs_acs5_Fields,limit_,limit
+main.data_2022_acs_acs5_Fields,predicateOnly,predicateOnly
+main.data_2022_acs_acs5_Fields,hasGeoCollectionSupport,hasGeoCollectionSupport
+main.data_2022_acs_acs5_Fields,attributes,attributes
+main.data_2022_acs_acs5_Fields,required,required
