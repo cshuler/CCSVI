@@ -1,0 +1,60 @@
+Table,Field Name,Field Alias
+main.data_2022_acs_acs5_CBG,OBJECTID,OBJECTID
+main.data_2022_acs_acs5_CBG,GEO_ID,Geography
+main.data_2022_acs_acs5_CBG,NAME,NAME
+main.data_2022_acs_acs5_CBG,B01001_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,B25034_006E,Estimate Total: Built 1980 to 1989
+main.data_2022_acs_acs5_CBG,B25034_007E,Estimate Total: Built 1970 to 1979
+main.data_2022_acs_acs5_CBG,B25034_008E,Estimate Total: Built 1960 to 1969
+main.data_2022_acs_acs5_CBG,B25034_009E,Estimate Total: Built 1950 to 1959
+main.data_2022_acs_acs5_CBG,B25034_010E,Estimate Total: Built 1940 to 1949
+main.data_2022_acs_acs5_CBG,B25034_011E,Estimate Total: Built 1939 or earlier
+main.data_2022_acs_acs5_CBG,B25046_001E,Estimate Aggregate number of vehicles available:
+main.data_2022_acs_acs5_CBG,B27010_017E,Estimate Total: Under 19 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_033E,Estimate Total: 19 to 34 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_050E,Estimate Total: 35 to 64 years: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B27010_066E,Estimate Total: 65 years and over: No health insurance coverage
+main.data_2022_acs_acs5_CBG,B28002_013E,Estimate Total: No Internet access
+main.data_2022_acs_acs5_CBG,C16002_004E,Estimate Total: Spanish: Limited English speaking household
+main.data_2022_acs_acs5_CBG,C16002_007E,Estimate Total: Other Indo-European languages: Limited English speaking household
+main.data_2022_acs_acs5_CBG,C16002_010E,Estimate Total: Asian and Pacific Island languages: Limited English speaking household
+main.data_2022_acs_acs5_CBG,C16002_013E,Estimate Total: Other languages: Limited English speaking household
+main.data_2022_acs_acs5_CBG,B09019_005E,Estimate Total: In households: Householder: Male: Living alone
+main.data_2022_acs_acs5_CBG,B09019_008E,Estimate Total: In households: Householder: Female: Living alone
+main.data_2022_acs_acs5_CBG,B19101_001E,Estimate Total:
+main.data_2022_acs_acs5_CBG,C17002_002E,Estimate Total: Under .50
+main.data_2022_acs_acs5_CBG,C17002_003E,Estimate Total: .50 to .99
+main.data_2022_acs_acs5_CBG,C17002_004E,Estimate Total: 1.00 to 1.24
+main.data_2022_acs_acs5_CBG,C17002_005E,Estimate Total: 1.25 to 1.49
+main.data_2022_acs_acs5_CBG,C17002_006E,Estimate Total: 1.50 to 1.84
+main.data_2022_acs_acs5_CBG,C17002_007E,Estimate Total: 1.85 to 1.99
+main.data_2022_acs_acs5_CBG,B20005_002E,Estimate Total: Male:
+main.data_2022_acs_acs5_CBG,B01001_003E,Estimate Total: Male: Under 5 years
+main.data_2022_acs_acs5_CBG,B01001_004E,Estimate Total: Male: 5 to 9 years
+main.data_2022_acs_acs5_CBG,B01001_005E,Estimate Total: Male: 10 to 14 years
+main.data_2022_acs_acs5_CBG,B01001_006E,Estimate Total: Male: 15 to 17 years
+main.data_2022_acs_acs5_CBG,B01001_020E,Estimate Total: Male: 65 and 66 years
+main.data_2022_acs_acs5_CBG,B01001_021E,Estimate Total: Male: 67 to 69 years
+main.data_2022_acs_acs5_CBG,state,state
+main.data_2022_acs_acs5_CBG,county,county
+main.data_2022_acs_acs5_CBG,tract,tract
+main.data_2022_acs_acs5_CBG,block_group,block group
+main.data_2022_acs_acs5_CBG,GEO_ID_2,GEO_ID_2
+main.data_2022_acs_acs5_CBG,P5_002N,  Total: Institutionalized population:
+main.data_2022_acs_acs5_CBG,P5_003N,  Total: Institutionalized population: Correctional facilities for adults
+main.data_2022_acs_acs5_CBG,P5_004N,  Total: Institutionalized population: Juvenile facilities
+main.data_2022_acs_acs5_CBG,P5_005N,  Total: Institutionalized population: Nursing facilities/Skilled-nursing facilities
+main.data_2022_acs_acs5_CBG,P5_008N,  Total: Noninstitutionalized population: College/University student housing
+main.data_2022_acs_acs5_CBG,P5_009N,  Total: Noninstitutionalized population: Military quarters
+main.data_2022_acs_acs5_CBG,P5_010N,  Total: Noninstitutionalized population: Other noninstitutional facilities
+main.data_2022_acs_acs5_Fields,OBJECTID,OBJECTID
+main.data_2022_acs_acs5_Fields,index_,index
+main.data_2022_acs_acs5_Fields,label,label
+main.data_2022_acs_acs5_Fields,concept,concept
+main.data_2022_acs_acs5_Fields,predicateType,predicateType
+main.data_2022_acs_acs5_Fields,group_,group
+main.data_2022_acs_acs5_Fields,limit_,limit
+main.data_2022_acs_acs5_Fields,predicateOnly,predicateOnly
+main.data_2022_acs_acs5_Fields,hasGeoCollectionSupport,hasGeoCollectionSupport
+main.data_2022_acs_acs5_Fields,attributes,attributes
+main.data_2022_acs_acs5_Fields,required,required
