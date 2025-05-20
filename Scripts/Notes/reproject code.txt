@@ -1,8 +1,0 @@
-# Step 4: Reproject raster
-arcpy.management.ProjectRaster(
-    in_raster=raster_path,
-    out_raster=reprojected_raster_path,
-    out_coor_system=spatial_ref,
-    resampling_type="NEAREST"  # could also be BILINEAR
-)
-print(f"Reprojected raster saved to: {reprojected_raster_path}")

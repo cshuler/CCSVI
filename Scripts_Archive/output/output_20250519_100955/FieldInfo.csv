@@ -1,0 +1,45 @@
+Table,Field Name,Field Alias
+main.data_2023_acs_acs5_County,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_County,GEO_ID,Geography
+main.data_2023_acs_acs5_County,NAME,NAME
+main.data_2023_acs_acs5_County,B27010_001E,Estimate Total:
+main.data_2023_acs_acs5_County,B27010_002E,Estimate Total: Under 19 years:
+main.data_2023_acs_acs5_County,B27010_018E,Estimate Total: 19 to 34 years:
+main.data_2023_acs_acs5_County,B27010_034E,Estimate Total: 35 to 64 years:
+main.data_2023_acs_acs5_County,B27010_051E,Estimate Total: 65 years and over:
+main.data_2023_acs_acs5_County,B27010_007E,Estimate Total: Under 19 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_County,B27010_013E,Estimate Total: Under 19 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_County,B27010_023E,Estimate Total: 19 to 34 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_County,B27010_029E,Estimate Total: 19 to 34 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_County,B27010_039E,Estimate Total: 35 to 64 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_County,B27010_046E,Estimate Total: 35 to 64 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_County,B27010_062E,Estimate Total: 65 years and over: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_County,state,state
+main.data_2023_acs_acs5_County,county,county
+main.data_2023_acs_acs5_Fields,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_Fields,index_,index
+main.data_2023_acs_acs5_Fields,label,label
+main.data_2023_acs_acs5_Fields,concept,concept
+main.data_2023_acs_acs5_Fields,predicateType,predicateType
+main.data_2023_acs_acs5_Fields,group_,group
+main.data_2023_acs_acs5_Fields,limit_,limit
+main.data_2023_acs_acs5_Fields,predicateOnly,predicateOnly
+main.data_2023_acs_acs5_Fields,hasGeoCollectionSupport,hasGeoCollectionSupport
+main.data_2023_acs_acs5_Fields,attributes,attributes
+main.data_2023_acs_acs5_Fields,required,required
+main.data_2023_acs_acs5_State,OBJECTID,OBJECTID
+main.data_2023_acs_acs5_State,GEO_ID,Geography
+main.data_2023_acs_acs5_State,NAME,NAME
+main.data_2023_acs_acs5_State,B27010_001E,Estimate Total:
+main.data_2023_acs_acs5_State,B27010_002E,Estimate Total: Under 19 years:
+main.data_2023_acs_acs5_State,B27010_018E,Estimate Total: 19 to 34 years:
+main.data_2023_acs_acs5_State,B27010_034E,Estimate Total: 35 to 64 years:
+main.data_2023_acs_acs5_State,B27010_051E,Estimate Total: 65 years and over:
+main.data_2023_acs_acs5_State,B27010_007E,Estimate Total: Under 19 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_State,B27010_013E,Estimate Total: Under 19 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_State,B27010_023E,Estimate Total: 19 to 34 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_State,B27010_029E,Estimate Total: 19 to 34 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_State,B27010_039E,Estimate Total: 35 to 64 years: With one type of health insurance coverage: With Medicaid/means-tested public coverage only
+main.data_2023_acs_acs5_State,B27010_046E,Estimate Total: 35 to 64 years: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_State,B27010_062E,Estimate Total: 65 years and over: With two or more types of health insurance coverage: With Medicare and Medicaid/means-tested public coverage
+main.data_2023_acs_acs5_State,state,state

@@ -1,0 +1,92 @@
+Johann_note,index_,Desc_,Keep,Comment,Variable,concept,group_,attributes
+,,Geographic Area Name,i,,,,,
+,B25034_006E,Estimate!!Total:!!Built 1980 to 1989,a,Add up buildings built before 1999. Building codes were revised after hurricane Iniki in 1993.,B25034_002E,Year Structure Built,B25034,"B25034_006EA,B25034_006M,B25034_006MA"
+,B25034_007E,Estimate!!Total:!!Built 1970 to 1979,a,"AY - What does it mean to summarize the buildings? sorry mean add up. All the ""a""",B25034_007E,Year Structure Built,B25034,"B25034_007EA,B25034_007M,B25034_007MA"
+,B25034_008E,Estimate!!Total:!!Built 1960 to 1969,a,,B25034_008E,Year Structure Built,B25034,"B25034_008EA,B25034_008M,B25034_008MA"
+,B25034_009E,Estimate!!Total:!!Built 1950 to 1959,a,,B25034_009E,Year Structure Built,B25034,"B25034_009EA,B25034_009M,B25034_009MA"
+,B25034_010E,Estimate!!Total:!!Built 1940 to 1949,a,,B25034_010E,Year Structure Built,B25034,"B25034_010EA,B25034_010M,B25034_010MA"
+,B25034_011E,Estimate!!Total:!!Built 1939 or earlier,a,,B25034_011E,Year Structure Built,B25034,"B25034_011EA,B25034_011M,B25034_011MA"
+,,Geographic Area Name,i,,,,,
+,B25046_001E,Estimate!!Aggregate number of vehicles available:,a,,B25046_001E,Aggregate Number of Vehicles Available by Tenure,B25046,"B25046_001EA,B25046_001M,B25046_001MA"
+,C27001G_004E,Estimate!!Total:!!Under 19 years:!!No health insurance coverage,a,"Add all ""no health insurance coverage"".",,Health Insurance Coverage Status by Age (Two or More Races),C27001G,"C27001G_004EA,C27001G_004M,C27001G_004MA"
+,B27010_033E,Estimate!!Total:!!19 to 34 years:!!No health insurance coverage,a,,,Types of Health Insurance Coverage by Age,B27010,"B27010_033EA,B27010_033M,B27010_033MA"
+,B27010_050E,Estimate!!Total:!!35 to 64 years:!!No health insurance coverage,a,"the ""a's"" in this dataset was in the wrong spot. moved it down",,Types of Health Insurance Coverage by Age,B27010,"B27010_050EA,B27010_050M,B27010_050MA"
+,C27001G_010E,Estimate!!Total:!!65 years and over:!!No health insurance coverage,a,"AY - duplicate note? yup seems like it. Just need one data layer that has number of households with ""no health insurance"" by block group",,Health Insurance Coverage Status by Age (Two or More Races),C27001G,"C27001G_010EA,C27001G_010M,C27001G_010MA"
+,,Geographic Area Name,i,,,,,
+,B28009E_006E,Estimate!!Total:!!No Computer,a,,,Presence of a Computer and Type of Internet Subscription in Household (Native Hawaiian and Other Pacific Islander Alone),B28009E,"B28009E_006EA,B28009E_006M,B28009E_006MA"
+,,Geographic Area Name,i,,,,,
+,B28002_013E,Estimate!!Total:!!No Internet access,a,,,Presence and Types of Internet Subscriptions in Household,B28002,"B28002_013EA,B28002_013M,B28002_013MA"
+,,Total limited English speaking household,a,"Add up all ""limited English speaking households"" for analysis. Keep number of people speaking each language as additional info.",,,,
+,C16002_004E,Estimate!!Total:!!Spanish:!!Limited English speaking household,i,,,Household Language by Household Limited English Speaking Status,C16002,"C16002_004EA,C16002_004M,C16002_004MA"
+,C16002_007E,Estimate!!Total:!!Other Indo-European languages:!!Limited English speaking household,i,,,Household Language by Household Limited English Speaking Status,C16002,"C16002_007EA,C16002_007M,C16002_007MA"
+,C16002_010E,Estimate!!Total:!!Asian and Pacific Island languages:!!Limited English speaking household,i,,,Household Language by Household Limited English Speaking Status,C16002,"C16002_010EA,C16002_010M,C16002_010MA"
+,C16002_013E,Estimate!!Total:!!Other languages:!!Limited English speaking household,i,,,Household Language by Household Limited English Speaking Status,C16002,"C16002_013EA,C16002_013M,C16002_013MA"
+,,"Total ""Living alone""",a,Add up all living alone,,,,
+,B09019_005E,Estimate!!Total:!!In households:!!Householder:!!Male:!!Living alone,i,,,Household Type (Including Living Alone) by Relationship,B09019,"B09019_005EA,B09019_005M,B09019_005MA"
+,B09019_008E,Estimate!!Total:!!In households:!!Householder:!!Female:!!Living alone,i,keep gender as additional info,,Household Type (Including Living Alone) by Relationship,B09019,"B09019_008EA,B09019_008M,B09019_008MA"
+,B19101A_001E,Estimate!!Total:,a,,,Family Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (White Alone Householder),B19101A,"B19101A_001EA,B19101A_001M,B19101A_001MA"
+,C17002_002E,Estimate!!Total:!!Under .50,a,,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_002EA,C17002_002M,C17002_002MA"
+,C17002_003E,Estimate!!Total:!!.50 to .99,a,One layer all households below 100%,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_003EA,C17002_003M,C17002_003MA"
+,C17002_004E,Estimate!!Total:!!1.00 to 1.24,a,,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_004EA,C17002_004M,C17002_004MA"
+,C17002_005E,Estimate!!Total:!!1.25 to 1.49,a,One layer all households below 150%,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_005EA,C17002_005M,C17002_005MA"
+,C17002_006E,Estimate!!Total:!!1.50 to 1.84,a,,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_006EA,C17002_006M,C17002_006MA"
+,C17002_007E,Estimate!!Total:!!1.85 to 1.99,a,One layer all households below 200%,,Ratio of Income to Poverty Level in the Past 12 Months,C17002,"C17002_007EA,C17002_007M,C17002_007MA"
+,B20005_002E,Estimate!!Total:!!Male:,a,I think you can use this to create the new gender dataset,,Sex by Work Experience in the Past 12 Months by Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 16 Years and Over,B20005,"B20005_002EA,B20005_002M,B20005_002MA"
+,B01001G_003E,Estimate!!Total:!!Male:!!Under 5 years,a,"add up genders. Make 3 layers one layer that is all ages under 5years, one that is all under 18 years, one that is all over 65 years.",,Sex by Age (Two or More Races),B01001G,"B01001G_003EA,B01001G_003M,B01001G_003MA"
+,B01001G_004E,Estimate!!Total:!!Male:!!5 to 9 years,a,"* layers = datasets, so create 3 new datasets aggregating these age ranges",,Sex by Age (Two or More Races),B01001G,"B01001G_004EA,B01001G_004M,B01001G_004MA"
+,B01001G_005E,Estimate!!Total:!!Male:!!10 to 14 years,a,,,Sex by Age (Two or More Races),B01001G,"B01001G_005EA,B01001G_005M,B01001G_005MA"
+,B01001G_006E,Estimate!!Total:!!Male:!!15 to 17 years,a,,,Sex by Age (Two or More Races),B01001G,"B01001G_006EA,B01001G_006M,B01001G_006MA"
+,B01001_020E,Estimate!!Total:!!Male:!!65 and 66 years,a,,,Sex by Age,B01001,"B01001_020EA,B01001_020M,B01001_020MA"
+,B01001_021E,Estimate!!Total:!!Male:!!67 to 69 years,a,,,Sex by Age,B01001,"B01001_021EA,B01001_021M,B01001_021MA"
+,B05013_017E,Estimate!!Total:!!Male:!!70 to 74 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_017EA,B05013_017M,B05013_017MA"
+,B05013_018E,Estimate!!Total:!!Male:!!75 to 79 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_018EA,B05013_018M,B05013_018MA"
+,B05013_019E,Estimate!!Total:!!Male:!!80 to 84 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_019EA,B05013_019M,B05013_019MA"
+,B01001B_016E,Estimate!!Total:!!Male:!!85 years and over,a,,,Sex by Age (Black or African American Alone),B01001B,"B01001B_016EA,B01001B_016M,B01001B_016MA"
+,B01001B_017E,Estimate!!Total:!!Female:,a,I think you can use this to create the new gender dataset,,Sex by Age (Black or African American Alone),B01001B,"B01001B_017EA,B01001B_017M,B01001B_017MA"
+,B01001B_018E,Estimate!!Total:!!Female:!!Under 5 years,a,,,Sex by Age (Black or African American Alone),B01001B,"B01001B_018EA,B01001B_018M,B01001B_018MA"
+,B01001B_019E,Estimate!!Total:!!Female:!!5 to 9 years,a,,,Sex by Age (Black or African American Alone),B01001B,"B01001B_019EA,B01001B_019M,B01001B_019MA"
+,B01001_044E,Estimate!!Total:!!Female:!!65 and 66 years,a,,,Sex by Age,B01001,"B01001_044EA,B01001_044M,B01001_044MA"
+,B01001_045E,Estimate!!Total:!!Female:!!67 to 69 years,a,,,Sex by Age,B01001,"B01001_045EA,B01001_045M,B01001_045MA"
+,B05013_036E,Estimate!!Total:!!Female:!!70 to 74 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_036EA,B05013_036M,B05013_036MA"
+,B05013_037E,Estimate!!Total:!!Female:!!75 to 79 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_037EA,B05013_037M,B05013_037MA"
+,B05013_038E,Estimate!!Total:!!Female:!!80 to 84 years,a,,,Sex by Age for the Foreign-Born Population,B05013,"B05013_038EA,B05013_038M,B05013_038MA"
+,B01001B_031E,Estimate!!Total:!!Female:!!85 years and over,a,,,Sex by Age (Black or African American Alone),B01001B,"B01001B_031EA,B01001B_031M,B01001B_031MA"
+Manually added,B26209_017E,!!Total:!!Institutionalized population:,a,,,,,
+Manually added,B26203D_004E,!!Total:!!Institutionalized population:!!Correctional facilities for adults,i,,,,,
+Manually added,B26204_031E,!!Total:!!Institutionalized population:!!Juvenile facilities,i,,,,,
+Manually added,B26203E_005E,!!Total:!!Institutionalized population:!!Nursing facilities/Skilled-nursing facilities,i,,,,,
+Not found,,!!Total:!!Institutionalized population:!!Other institutional facilities,i,,,,,
+,B02001_002E,Estimate!!Total:!!White alone,a,,,Race,B02001,"B02001_002EA,B02001_002M,B02001_002MA"
+,B02001_003E,Estimate!!Total:!!Black or African American alone,a,,,Race,B02001,"B02001_003EA,B02001_003M,B02001_003MA"
+,B02001_004E,Estimate!!Total:!!American Indian and Alaska Native alone,a,,,Race,B02001,"B02001_004EA,B02001_004M,B02001_004MA"
+,B02001_005E,Estimate!!Total:!!Asian alone,a,,,Race,B02001,"B02001_005EA,B02001_005M,B02001_005MA"
+,B02001_006E,Estimate!!Total:!!Native Hawaiian and Other Pacific Islander alone,a,,,Race,B02001,"B02001_006EA,B02001_006M,B02001_006MA"
+,B02001_007E,Estimate!!Total:!!Some Other Race alone,a,,,Race,B02001,"B02001_007EA,B02001_007M,B02001_007MA"
+,B02001_008E,Estimate!!Total:!!Two or More Races:,a,,,Race,B02001,"B02001_008EA,B02001_008M,B02001_008MA"
+,B25008D_003E,Estimate!!Total:!!Renter occupied,a,,,Total Population in Occupied Housing Units by Tenure (Asian Alone Householder),B25008D,"B25008D_003EA,B25008D_003M,B25008D_003MA"
+Not found,,Estimate!!Total!!Total population!!AGE!!Under 5 years,a,See adding rules in age dataset above.,,,,
+Not found,,Estimate!!Total!!Total population!!AGE!!5 to 17 years,a,See adding rules in age dataset above.,,,,
+Not found,,Estimate!!Total!!Total population!!AGE!!65 to 74 years,a,See adding rules in age dataset above.,,,,
+Not found,,Estimate!!Total!!Total population!!AGE!!75 years and over,a,See adding rules in age dataset above.,,,,
+Not found,,Estimate!!Total!!Total population!!SEX!!Male,a,,,,,
+Not found,,Estimate!!Total!!Total population!!SEX!!Female,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!White,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!Black or African American,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!American Indian and Alaska Native,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!Asian,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!Native Hawaiian and Other Pacific Islander,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!One race!!Some other race,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!Two or more races,a,,,,,
+Not found,,Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!Hispanic or Latino origin (of any race),a,,,,,
+Not found,,"Estimate!!Total!!Total population!!RACE AND HISPANIC OR LATINO ORIGIN!!White alone, not Hispanic or Latino",a,,,,,
+Not found,,"Estimate!!Total!!LANGUAGE SPOKEN AT HOME AND ABILITY TO SPEAK ENGLISH!!Population 5 years and over!!Speak language other than English!!Speak English less than very well""""",a,,"sum up speak language other than english and ""less than very well"" for analysis but keep separate info for metadata",,,
+Not found,,Estimate!!Total!!INDIVIDUALS' INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Population 15 years and over!!Median income (dollars),a,,,,,
+Not found,,Estimate!!Total!!POVERTY STATUS IN THE PAST 12 MONTHS!!Population for whom poverty status is determined!!Below 100 percent of the poverty level,a,Add column to poverty status dataset,,,,
+Not found,,Estimate!!Total!!POVERTY STATUS IN THE PAST 12 MONTHS!!Population for whom poverty status is determined!!100 to 149 percent of the poverty level,a,Add column to poverty status dataset,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,Combined:,,,,,,,
+,"B25034_006E,B25034_007E,B25034_008E,B25034_009E,B25034_010E,B25034_011E,B25046_001E,C27001G_004E,B27010_033E,B27010_050E,C27001G_010E,B28009E_006E,B28002_013E,C16002_004E,C16002_007E,C16002_010E,C16002_013E,B09019_005E,B09019_008E,B19101A_001E,C17002_002E,C17002_003E,C17002_004E,C17002_005E,C17002_006E,C17002_007E,B20005_002E,B01001G_003E,B01001G_004E,B01001G_005E,B01001G_006E,B01001_020E,B01001_021E,B05013_017E,B05013_018E,B05013_019E,B01001B_016E,B01001B_017E,B01001B_018E,B01001B_019E,B01001_044E,B01001_045E,B05013_036E,B05013_037E,B05013_038E,B01001B_031E,B26209_017E,B26203D_004E,B26204_031E,B26203E_005E,B02001_002E,B02001_003E,B02001_004E,B02001_005E,B02001_006E,B02001_007E,B02001_008E,B25008D_003E",,,,,,,
+,"B25034_006E,B25034_007E,B25034_008E,B25034_009E,B25034_010E,B25034_011E,B25046_001E,C27001G_004E,B27010_033E,B27010_050E,C27001G_010E,B28009E_006E,B28002_013E,C16002_004E,C16002_007E,C16002_010E,C16002_013E,B09019_005E,B09019_008E,B19101A_001E,C17002_002E,C17002_003E,C17002_004E,C17002_005E,C17002_006E,C17002_007E,B20005_002E,B01001G_003E,B01001G_004E,B01001G_005E,B01001G_006E,B01001_020E,B01001_021E,B05013_017E,B05013_018E,B05013_019E,B01001B_016E,B01001B_017E,B01001B_018E,B01001B_019E,B01001_044E,B01001_045E,B05013_036E,B05013_037E,B05013_038E,B01001B_031E",,,,,,,
+,"B26209_017E,B26203D_004E,B26204_031E,B26203E_005E,B02001_002E,B02001_003E,B02001_004E,B02001_005E,B02001_006E,B02001_007E,B02001_008E,B25008D_003E",,,,,,,

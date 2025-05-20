@@ -1,0 +1,10 @@
+Census Block Groups 2024 intersected with Kontur 400m population hexagons to trim to populated areas. Fields added include population from 2020 Decennial Census, acres, square KM, pop density. GEOIDFQ field allows joining with CBG data
+
+CBG polygons
+httpswww.census.govgeographiesmapping-filestime-seriesgeocartographic-boundary.html
+
+Kontur Hexagons 
+httpsdata.humdata.orgdatasetkontur-population-dataset
+
+Pop API URL (pulls JSON)
+httpsapi.census.govdata2020decplget=P1_001N,NAME&for=block%20group&in=state15%20county

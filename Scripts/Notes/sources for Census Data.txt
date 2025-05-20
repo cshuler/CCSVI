@@ -1,8 +1,0 @@
-CBG polygons:
-https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
-
-Kontur Hexagons: 
-https://data.humdata.org/dataset/kontur-population-dataset
-
-Pop API URL (pulls JSON):
-https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&for=block%20group:*&in=state:15%20county:*

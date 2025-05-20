@@ -1,1 +1,0 @@
-https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&for=block%20group:*&in=state:15%20county:*

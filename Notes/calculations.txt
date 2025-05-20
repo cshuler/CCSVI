@@ -1,0 +1,3 @@
+!B27010_007E! + !B27010_013E! + !B27010_023E! + !B27010_029E! + !B27010_039E! + !B27010_046E! = Under 65 with Medicaid
+
+round(!medicaid_cov! / !pop_under_65! * 100) = percentage under 65 with Medicaid
