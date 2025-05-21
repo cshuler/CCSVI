@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <pubdate>20171002</pubdate>
+                <title>coastal_flood_zones_w_SLR3</title>
+                <geoform>vector digital data</geoform>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>[Metadata]  Tropical storms, hurricanes, and tsunamis create waves that flood low-lying coastal areas. The National Flood Insurance Program (NFIP) produces flood insurance rate maps (FIRMs) that depict flood risk zones referred to as Special Flood Hazard Areas (SFHA) based modeling 1%-annual-chance flood event also referred to as a 100-year flood. The purpose of the FIRM is twofold: (1) to provide the basis for application of regulatory standards and (2) to provide the basis for insurance rating.SFHAs identify areas at risk from infrequent but severe storm-induced wave events and riverine flood events that are based upon historical record. By law (44 Code of Federal Regulations [CFR] 60.3), FEMA can only map flood risk that will be utilized for land use regulation or insurance rating based on historical data, therefore, future conditions with sea level rise and other impacts of climate change are not considered in FIRMs. It is important to note that FEMA can produce Flood Insurance Rate Maps that include future condition floodplains, but these would be considered “awareness” zones and not to be used for regulatory of insurance rating purposes.The State of Hawai‘i 2018 Hazard Mitigation Plan incorporated the results of modeling and an assessment of vulnerability to coastal flooding from storm-induced wave events with sea level rise (Tetra Tech Inc., 2018). The 1% annual-chance-coastal flood zone with sea level rise (1%CFZ) was modeled to estimate coastal flood extents and wave heights for wave-generating events with sea level rise. Modeling was conducted by Sobis Inc. under State of Hawaiʻi Department of Land and Natural Resources Contract No: 64064. The 1%CFZ with 3.2 feet of sea level rise was utilized to assess vulnerability to coastal event-based flooding in mid to - late century.The 1%CFZ with sea level rise would greatly expand the impacts from a 100-year flood event meaning that more coastal land area will be exposed to damaging waves. For example, over 120 critical infrastructure facilities in the City and County of Honolulu, including water, waste, and wastewater systems and communication and energy facilities would be impacted in the 1%CFZ with 3.2 feet of sea level rise (Tetra Tech Inc., 2018). This is double the number of facilities in the SFHA which includes the impacts of riverine flooding.A simplified version of the Wave Height Analysis for Flood Insurance Studies (WHAFIS) extension (FEMA, 2019b) included in Hazus-MH, was used to create the 1% annual chance coastal floodplain. Hazus is a nationally applicable standardized methodology that contains models for estimating potential losses from earthquakes, floods, tsunamis, and hurricanes (FEMA, 2019a). The current 1%-annual-chance stillwater elevations were collected using the most current flood insurance studies (FIS) for each island conducted by FEMA (FEMA, 2004, 2010, 2014, 2015). The FIS calculates the 1%-annual-chance stillwater elevation, wave setup, and wave run-up (called maximum wave crest) at regularly-spaced transects around the islands based on historical data. Modeling for the 1%CFZ used the NOAA 3-meter digital elevation model (DEM) which incorporates LiDAR data sets collected between 2003 and 2007 from NOAA, FEMA, the State of Hawaiʻi Emergency Management Agency, and the USACE (NOAA National Centers for Environmental Information, 2017).Before Hazus was run for future conditions, it was run for the current conditions and compared to the FEMA regulatory floodplain to determine model accuracy. This also helped determine the stillwater elevation for the large gaps between some transects in the FIS. Hazus was run at 0.5-foot stillwater level intervals and the results were compared to the existing Flood Insurance Rate Map (FIRM). The interval of 0.5-feet was chosen as a small enough step to result in a near approximation of the FIRM while not being too impractically narrow to require the testing of dozens of input elevations. The elevation which matched up best was used as the current base flood elevation.Key steps in modeling the projected 1%CFZ with sea level rise include: (1) generating a contiguous (no gaps along the shoreline) and present-day 1%-annual-chance stillwater elevation based on the most recent FIS, (2) elevating the present-day 1%-annual-chance stillwater elevation by adding projected sea level rise heights, and (3) modeling the projected 1%-annual-chance coastal flood with sea level rise in HAZUS using the 1%-annual-chance wave setup and run-up from the FIS. The 1%CFZ extent and depth was generated using the HAZUS 3.2 coastal flood risk assessment model, 3-meter DEM, the FIS for each island, and the IPCC AR5 upper sea level projection for RCP 8.5 scenario for 0.6 feet, 1.0 feet, 2.0 feet, and 3.2 feet of sea level rise above MHHW (IPCC, 2014). The HAZUS output includes the estimated spatial extent of coastal flooding as well as an estimated flood depth map grid for the four sea level rise projections.Using the current floodplain generated with Hazus, the projected 1%-annual-chance stillwater elevation was generated using the four sea level rise projections. This stillwater elevation with sea level rise was used as a basis for modeling. The projected 1%-annual coastal flood with sea level rise was modeled in Hazus using the current 1%-annual-chance wave setup and run-up from the FIS and the projected 1%-annual-chance stillwater elevation with sea level rise. For additional information, please refer to summary metadata at https://files.hawaii.gov/dbedt/op/gis/data/coastal_flood_zones_summary.pdf or contact Hawaii Statewide GIS Program, Office of Planning and Sustainable Development, State of Hawaii; PO Box 2359, Honolulu, Hi. 96804; (808) 587-2846; email: gis@hawaii.gov.</abstract>
+            <purpose>1 Pct Coastal Flood Zone with 3.2 ft Sea Level Rise - Statewide</purpose>
+        </descript>
+        <timeperd>
+            <timeinfo>
+                <rngdates>
+                    <begdate>20160601</begdate>
+                    <enddate>20170926</enddate>
+                </rngdates>
+            </timeinfo>
+            <current>State of Hawaii</current>
+        </timeperd>
+        <status>
+            <update>None planned</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-159.789256</westbc>
+                <eastbc>-154.732110</eastbc>
+                <northbc>22.232969</northbc>
+                <southbc>18.893009</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>None</themekt>
+                <themekey>Climate change</themekey>
+                <themekey>floodplain</themekey>
+            </theme>
+            <theme>
+                <themekt>ISO 19115 Topic Categories</themekt>
+                <themekey>farming</themekey>
+                <themekey>economy</themekey>
+                <themekey>environment</themekey>
+                <themekey>health</themekey>
+                <themekey>oceans</themekey>
+                <themekey>planningCadastre</themekey>
+                <themekey>society</themekey>
+                <themekey>structure</themekey>
+                <themekey>transportation</themekey>
+                <themekey>utilitiesCommunication</themekey>
+            </theme>
+            <place>
+                <placekt>None</placekt>
+                <placekey>Hawai'i</placekey>
+                <placekey>Hawai'i County</placekey>
+                <placekey>Kauai County</placekey>
+                <placekey>Maui County</placekey>
+                <placekey>City and County of Honolulu</placekey>
+                <placekey>Niihau</placekey>
+                <placekey>Kauai</placekey>
+                <placekey>Oahu</placekey>
+                <placekey>Molokai</placekey>
+                <placekey>Lanai</placekey>
+                <placekey>Maui</placekey>
+                <placekey>Kahoolawe</placekey>
+            </place>
+            <temporal>
+                <tempkt>None</tempkt>
+                <tempkey>2100 time horizon</tempkey>
+            </temporal>
+        </keywords>
+        <accconst>None</accconst>
+        <useconst>This data is to be used for planning purposes only. Engineering and design decisions are not appropriate uses of this data.Historical records of severe wave events used to model the 1%CFZ with sea level rise do not consider potential changes in tropical cyclone activity related to climate change. Historical data used to model the 1%CFZ were based on the current FIS for each island conducted by the NFIP. The FISs use historic severe wave events from hurricanes, tsunamis, and other significant events to develop the FIRMs.The 1%CFZ with sea level rise is modeled as a static rise of the base flood elevation using a fixed shoreline. As such, it does not consider changes in the location of the shoreline resulting from coastal erosion. While the current FIS for each island was used for modeling; these studies are based on historical records of hurricanes, tsunamis, and other coastal wave events and do not include projected changes in waves due to changes in storm frequency or intensity as a result of climate change. Also, riverine flooding is not included in the modeling.State of Hawaii Terms of Use. 
+
+
+
+The
+ contents of this web page are public domain and to the extent indicated
+ otherwise in the Terms of Use, are exempt from Terms of Use policy 
+restrictions.There are no expressed warranties associated with the 
+release of this data or product. Specifically, no warranty is made that 
+the GIS data or any subsequent updates will be error free and no 
+warranty is made regarding the positional or thematic accuracy of the 
+GIS data. The GIS data and any features depicted do not represent or 
+confer any legal rights, privileges, benefits, boundaries or claims of 
+any kind. The Office of Planning and Sustainable Development encourages users to report any 
+discrepancies or errors found. 
+ Contact: Hawaii Statewide GIS Program, Office of Planning and 
+Sustainable Development, State of Hawaii; PO Box 2359, Honolulu, Hi. 
+96804; (808) 587-2846; email: gis@hawaii.gov. Website: https://planning.hawaii.gov/gis.</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>Tetra Tech EM Inc</cntorg>
+                    <cntper>Catherine Courtney</cntper>
+                </cntorgp>
+            </cntinfo>
+        </ptcontac>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>Tetra Tech EM Inc</cntorg>
+                    <cntper>Catherine Courtney</cntper>
+                </cntorgp>
+            </cntinfo>
+        </ptcontac>
+        <datacred>Tetra Tech, Inc. for The State of Hawai‘i 2018 Hazard Mitigation Plan, Hawaii Emergency Management Agency</datacred>
+        <native>Version 6.2 (Build 9200) ; Esri ArcGIS 10.8.1.14362</native>
+    </idinfo>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>GT-polygon composed of chains</sdtstype>
+                <ptvctcnt>18</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <eainfo>
+        <detailed>
+            <enttyp>
+                <enttypl>coastal_flood_zones_w_SLR3</enttypl>
+            </enttyp>
+            <attr>
+                <attrlabl>Shape</attrlabl>
+                <attrdef>Feature geometry.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Coordinates defining the features.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>Shape_Area</attrlabl>
+                <attrdef>Area of feature in internal units squared.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Positive real numbers that are automatically generated.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>Zone</attrlabl>
+            </attr>
+            <attr>
+                <attrlabl>Shape_Length</attrlabl>
+                <attrdef>Length of feature in internal units.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Positive real numbers that are automatically generated.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+            <attr>
+                <attrlabl>OBJECTID</attrlabl>
+                <attrdef>Internal feature number.</attrdef>
+                <attrdefs>Esri</attrdefs>
+                <attrdomv>
+                                        					
+                    
+                    <udom>Sequential unique whole numbers that are automatically generated.</udom>
+                                        				
+                
+                </attrdomv>
+            </attr>
+        </detailed>
+    </eainfo>
+    <metainfo>
+        <metd>20210411</metd>
+        <metc>
+            <cntinfo>
+                <!--no contact person or organization name available-->
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+        <metuc>This data is to be used for planning purposes only. Engineering and design decisions are not appropriate uses of this data.</metuc>
+    </metainfo>
+</metadata>
