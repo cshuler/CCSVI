@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20250520</CreaDate><CreaTime>18462500</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files\arcgis\pro\Resources\ArcToolbox\toolboxes\Data Management Tools.tbx\CopyFeatures" Date="20250520" Time="184625">CopyFeatures cbg_layer C:\GITHUB\CCSVI\Scripts\Spatial_Analysis\output\combined_zonal_shapes.shp # # # #</Process></lineage></DataProperties></Esri></metadata>
