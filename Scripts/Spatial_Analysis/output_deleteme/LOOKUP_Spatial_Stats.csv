@@ -1,8 +1,0 @@
-index,label,description
-cat4_mom_slosh_hightide_maximum,Cat 4 SLOSH Max,Category 4 hurricane SLOSH raster max feet flood level within  trimmed CBG
-cat4_mom_slosh_hightide_maximum,Emergency Shelters in 0.5 mile,Number of emergency shelters within 1/2 mile of trimmed CBG (shelters can be counted multiple times)
-igtn_prob_test_maximum,Ignition Probability Max,Ignition Probability test data for one day in May max value within trimmed CBG
-slrxa_3pt2ft_acres,SLR-XA Acres Overlap,Number of acres that overlap between trimmed CBG and Sea Level  Rise Exposure 3.2ft
-slrxa_3pt2ft_intersect,SLR-XA touches or not,1 if trimmed CBG touches Sea Level Rise Exposure 3.2ft or 0 if it doesn't
-slrxa_3pt2ft_pct,Percent of trimmed CBG within SLR-XA,Overlapping acres divided by total acres of trimmed CBG
-staterf_inann_mean,Avg Annual Rainfall Inches,Average rainfall inches per year within trimmed CBG
