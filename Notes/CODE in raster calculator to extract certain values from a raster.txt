@@ -1,0 +1,1 @@
+Con(("CAH_LandCover.tif" >= 44) & ("CAH_LandCover.tif" <= 46), 1, 0)
