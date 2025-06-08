@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmi:MI_Metadata xmlns:gco="http://www.isotc211.org/2005/gco"
+                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                 xmlns:gmi="http://www.isotc211.org/2005/gmi"
+                 xmlns:gml="http://www.opengis.net/gml/3.2"
+                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                 xmlns:gsr="http://www.isotc211.org/2005/gsr"
+                 xmlns:gss="http://www.isotc211.org/2005/gss"
+                 xmlns:gts="http://www.isotc211.org/2005/gts"
+                 xmlns:srv="http://www.isotc211.org/2005/srv"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.isotc211.org/2005/gmi https://data.noaa.gov/resources/iso19139/schema.xsd">
+   <gmd:fileIdentifier>
+      <gco:CharacterString>gov.noaa.nmfs.inport:75971</gco:CharacterString>
+   </gmd:fileIdentifier>
+   <gmd:language>
+      <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php"
+                        codeListValue="eng">eng</gmd:LanguageCode>
+   </gmd:language>
+   <gmd:characterSet>
+      <gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode"
+                               codeListValue="UTF8">UTF8</gmd:MD_CharacterSetCode>
+   </gmd:characterSet>
+   <gmd:hierarchyLevel>
+      <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode"
+                        codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+   </gmd:hierarchyLevel>
+   <gmd:hierarchyLevelName>
+      <gco:CharacterString>Elevation</gco:CharacterString>
+   </gmd:hierarchyLevelName>
+   <gmd:contact>
+      <gmd:CI_ResponsibleParty>
+         <gmd:organisationName>
+            <gco:CharacterString>Office for Coastal Management</gco:CharacterString>
+         </gmd:organisationName>
+         <gmd:contactInfo>
+            <gmd:CI_Contact>
+               <gmd:phone>
+                  <gmd:CI_Telephone>
+                     <gmd:voice gco:nilReason="missing"/>
+                  </gmd:CI_Telephone>
+               </gmd:phone>
+               <gmd:address>
+                  <gmd:CI_Address/>
+               </gmd:address>
+            </gmd:CI_Contact>
+         </gmd:contactInfo>
+         <gmd:role>
+            <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                             codeListValue="resourceProvider">resourceProvider</gmd:CI_RoleCode>
+         </gmd:role>
+      </gmd:CI_ResponsibleParty>
+   </gmd:contact>
+   <gmd:contact>
+      <gmd:CI_ResponsibleParty>
+         <gmd:organisationName>
+            <gco:CharacterString>NOAA Office for Coastal Management</gco:CharacterString>
+         </gmd:organisationName>
+         <gmd:contactInfo>
+            <gmd:CI_Contact>
+               <gmd:phone>
+                  <gmd:CI_Telephone>
+                     <gmd:voice>
+                        <gco:CharacterString>(843) 740-1202</gco:CharacterString>
+                     </gmd:voice>
+                  </gmd:CI_Telephone>
+               </gmd:phone>
+               <gmd:address>
+                  <gmd:CI_Address>
+                     <gmd:deliveryPoint>
+                        <gco:CharacterString>2234 South Hobson Ave</gco:CharacterString>
+                     </gmd:deliveryPoint>
+                     <gmd:city>
+                        <gco:CharacterString>Charleston</gco:CharacterString>
+                     </gmd:city>
+                     <gmd:administrativeArea>
+                        <gco:CharacterString>SC</gco:CharacterString>
+                     </gmd:administrativeArea>
+                     <gmd:postalCode>
+                        <gco:CharacterString>29405-2413</gco:CharacterString>
+                     </gmd:postalCode>
+                     <gmd:country gco:nilReason="missing"/>
+                     <gmd:electronicMailAddress>
+                        <gco:CharacterString>coastal.info@noaa.gov</gco:CharacterString>
+                     </gmd:electronicMailAddress>
+                  </gmd:CI_Address>
+               </gmd:address>
+               <gmd:onlineResource>
+                  <gmd:CI_OnlineResource>
+                     <gmd:linkage>
+                        <gmd:URL>https://coast.noaa.gov</gmd:URL>
+                     </gmd:linkage>
+                     <gmd:protocol>
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </gmd:protocol>
+                     <gmd:name>
+                        <gco:CharacterString>NOAA Office for Coastal Management Website</gco:CharacterString>
+                     </gmd:name>
+                     <gmd:description>
+                        <gco:CharacterString>NOAA Office for Coastal Management Home Page</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                   codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                     </gmd:function>
+                  </gmd:CI_OnlineResource>
+               </gmd:onlineResource>
+            </gmd:CI_Contact>
+         </gmd:contactInfo>
+         <gmd:role>
+            <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                             codeListValue="pointOfContact">pointOfContact</gmd:CI_RoleCode>
+         </gmd:role>
+      </gmd:CI_ResponsibleParty>
+   </gmd:contact>
+   <gmd:dateStamp>
+      <gco:DateTime>2025-05-21T13:40:45</gco:DateTime>
+   </gmd:dateStamp>
+   <gmd:metadataStandardName>
+      <gco:CharacterString>ISO 19115-2 Geographic Information - Metadata Part 2 Extensions for imagery and gridded data</gco:CharacterString>
+   </gmd:metadataStandardName>
+   <gmd:metadataStandardVersion>
+      <gco:CharacterString>ISO 19115-2:2009(E)</gco:CharacterString>
+   </gmd:metadataStandardVersion>
+   <gmd:referenceSystemInfo>
+      <gmd:MD_ReferenceSystem>
+         <gmd:referenceSystemIdentifier>
+            <gmd:RS_Identifier>
+               <gmd:code>
+                  <gco:CharacterString>EPSG::6634</gco:CharacterString>
+               </gmd:code>
+            </gmd:RS_Identifier>
+         </gmd:referenceSystemIdentifier>
+      </gmd:MD_ReferenceSystem>
+   </gmd:referenceSystemInfo>
+   <gmd:referenceSystemInfo>
+      <gmd:MD_ReferenceSystem>
+         <gmd:referenceSystemIdentifier>
+            <gmd:RS_Identifier>
+               <gmd:code>
+                  <gco:CharacterString>EPSG::5703</gco:CharacterString>
+               </gmd:code>
+            </gmd:RS_Identifier>
+         </gmd:referenceSystemIdentifier>
+      </gmd:MD_ReferenceSystem>
+   </gmd:referenceSystemInfo>
+   <gmd:identificationInfo>
+      <gmd:MD_DataIdentification>
+         <gmd:citation>
+            <gmd:CI_Citation>
+               <gmd:title>
+                  <gco:CharacterString>2022 - 2023 NOAA USGS Lidar DEM: HI (Kahoolawe, Lanai, Maui, Molokai, Oahu)</gco:CharacterString>
+               </gmd:title>
+               <gmd:date>
+                  <gmd:CI_Date>
+                     <gmd:date>
+                        <gco:Date>2022</gco:Date>
+                     </gmd:date>
+                     <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode"
+                                             codeListValue="creation">creation</gmd:CI_DateTypeCode>
+                     </gmd:dateType>
+                  </gmd:CI_Date>
+               </gmd:date>
+               <gmd:date>
+                  <gmd:CI_Date>
+                     <gmd:date>
+                        <gco:Date>2025</gco:Date>
+                     </gmd:date>
+                     <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode"
+                                             codeListValue="publication">publication</gmd:CI_DateTypeCode>
+                     </gmd:dateType>
+                  </gmd:CI_Date>
+               </gmd:date>
+               <gmd:identifier>
+                  <gmd:MD_Identifier>
+                     <gmd:authority>
+                        <gmd:CI_Citation>
+                           <gmd:title>
+                              <gco:CharacterString>NOAA/NMFS/EDM</gco:CharacterString>
+                           </gmd:title>
+                           <gmd:date gco:nilReason="inapplicable"/>
+                        </gmd:CI_Citation>
+                     </gmd:authority>
+                     <gmd:code>
+                        <gmx:Anchor xlink:href="https://www.fisheries.noaa.gov/inport/item/75971"
+                                    xlink:actuate="onRequest"
+                                    xlink:title="InPort Catalog ID">75971</gmx:Anchor>
+                     </gmd:code>
+                  </gmd:MD_Identifier>
+               </gmd:identifier>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://www.fisheries.noaa.gov/inport/item/75971</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>Full Metadata Record</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>View the complete metadata record on InPort for more information about this dataset.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/metadata/HI_NOAAMauiOahu_2020_B20/USGS_HI_NOAAMauiOahu_2020_B20_Project_Report.pdf</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>USGS Project Report</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>Link to the USGS Project Report that provides information about the project, vertical accuracy results, and the point classes and sensors used.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/laz/geoid12b/10331/supplemental/HI_NOAAMauiOahu_2_B20_Lidar_Mapping_Report.pdf</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>Lidar Report - HI_NOAAMauiOahu2</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>Link to the lidar report.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/metadata/HI_NOAAMauiOahu_2020_B20/HI_NOAAMauiOahu_1_B20/reports/lidar_mapping_report/HI_NOAAMauiOahu_1_B20_Lidar_Mapping_Report.pdf</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>Lidar Report - HI_NOAAMauiOahu1</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>Link to the lidar report.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/HI_NOAAMauiOahu_2020_B20/HI_NOAAMauiOahu_2_B20/</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>USGS Additional Info - HI_NOAAMauiOahu2</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>Link to the reports, breaklines, metadata, and spatial metadata.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Elevation/metadata/HI_NOAAMauiOahu_2020_B20/HI_NOAAMauiOahu_1_B20/</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>USGS Additional Info - HI_NOAAMauiOahu1</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>Link to the reports, breaklines, metadata, and spatial metadata.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:citedResponsibleParty>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName gco:nilReason="inapplicable"/>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://coast.noaa.gov/dataviewer/</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>NOAA's Office for Coastal Management (OCM) Data Access Viewer (DAV)</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>The Data Access Viewer (DAV) allows a user to search for and download elevation, imagery, and land cover data for the coastal U.S. and its territories. The data, hosted by the NOAA Office for Coastal Management, can be customized and requested for free download through a checkout interface. An email provides a link to the customized data, while the original data set is available through a link within the viewer.</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role gco:nilReason="inapplicable"/>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:citedResponsibleParty>
+               <gmd:presentationForm gco:nilReason="unknown"/>
+            </gmd:CI_Citation>
+         </gmd:citation>
+         <gmd:abstract>
+            <gco:CharacterString>Original Dataset Product:  0.5-meter bare-earth raster digital elevation model (DEM) data tiles in GeoTIFF format. 
+
+Original Dataset Geographic Extent: 
+HI_NOAAMauiOahu_1: The work unit covers approximately 446 square miles (260.7 square miles of Molokai, 140.7 square miles of Lanai, and 44.6 square miles of Kahoolawe in the state of Hawaii).
+HI_NOAAMauiOahu_2: The work unit covers approximately 540.86 square miles of Maui and 496.61 square miles of Oahu in the state of Hawaii.
+
+Original Dataset Description: 
+HI_NOAAMauiOahu_1 (Kahoolawe, Lanai, Molokai)
+HI_NOAAMauiOahu_1_B20 lidar project called for the planning, acquisition, processing, and production of derivative products of QL1 lidar data to be collected an aggregate nominal pulse spacing (ANPS) of 0.35-meters and 8 points per square meter (ppsm). Project specifications were based on the National Geospatial Program Lidar Base Specification Version 2.1, and the American Society of Photogrammetry and Remote Sensing (ASPRS) Positional Accuracy Standards for Digital Geospatial Data (Edition 1, Version 1.0). The data was developed based on a horizontal reference system of NAD83 (PA11), UTM 4 (EPSG 6634), Meter,  and a vertical reference system of NAVD88 (GEOID12B), Meter. DEM data was delivered as processed GeoTIFF files formatted to 5,044 individual 500-meters x 500-meters tiles. Note: Between 2020 and 2023 multiple mobilizations were made to collect the data in the project area due to the extreme terrain and persistent low clouds. On March 31, 2023, it was decided between Woolpert and USGS to end the acquisition phase of the project and move onto processing with the data collected. The DPA and work unit has been clipped to the extent of the data collected. Areas of low point density and/or small data voids within the work unit have been identified with low confidence polygons.
+
+HI_NOAAMauiOahu_2 (Maui, Oahu)
+HI_NOAAMauiOahu_2_B20 lidar project called for the planning, acquisition, processing, and production of derivative products of QL1 lidar data to be collected an aggregate nominal pulse spacing (ANPS) of 0.35-meters and 8 points per square meter (ppsm). Project specifications were based on the National Geospatial Program Lidar Base Specification Version 2.1, and the American Society of Photogrammetry and Remote Sensing (ASPRS)  Positional Accuracy Standards for Digital Geospatial Data (Edition 1, Version 1.0). The data was developed based on a horizontal reference system of NAD83 (PA11), UTM 4 (EPSG 6634), Meter, and a vertical reference system of NAVD88 (GEOID12B), Meter. DEM data was delivered as processed GeoTIFF files formatted to 11,716 individual 500-meters x 500-meters tiles. Note: Between 2020 and 2023 multiple mobilizations were made to collect the data in the project area due to the extreme terrain and persistent low clouds. On March 31, 2023, it was decided between Woolpert and USGS to end the acquisition phase of the project and move onto processing with the data collected. The DPA and work unit has been clipped to the extent of the data collected. Areas of low point density and/or small data voids within the work unit have been identified with low confidence polygons.
+
+Original Dataset Ground Conditions: 
+HI_NOAAMauiOahu_1 (Kahoolawe, Lanai, Molokai)
+Lidar was collected from August 2, 2022, through July 9, 2023 while no snow was on the ground and rivers were at or below normal levels. In order to post process the lidar data to meet task order specifications and meet ASPRS vertical accuracy guidelines, Woolpert established ground control points that were used to calibrate the lidar to known ground locations established throughout the entire project area. An additional independent accuracy checkpoints were collected throughout the entire project area and used to assess the vertical accuracy of the data. These checkpoints were not used to calibrate or post process the data.
+
+HI_NOAAMauiOahu_2 (Maui, Oahu)
+Lidar was collected from January 11, 2023, through July 7, 2023 while rivers were at or below normal levels. In order to post process the lidar data to meet task order specifications and meet ASPRS vertical accuracy guidelines, Woolpert established ground control points that were used to calibrate the lidar to known ground locations established throughout the entire project area. An additional independent accuracy checkpoints were collected throughout the entire project area and used to assess the vertical accuracy of the data. These checkpoints were not used to calibrate or post process the data.</gco:CharacterString>
+         </gmd:abstract>
+         <gmd:purpose>
+            <gco:CharacterString>This project will support USGS and the 3DEP mission, FEMA, and state and local agencies.</gco:CharacterString>
+         </gmd:purpose>
+         <gmd:credit>
+            <gco:CharacterString>Woolpert, NOAA, USGS</gco:CharacterString>
+         </gmd:credit>
+         <gmd:status>
+            <gmd:MD_ProgressCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_ProgressCode"
+                                 codeListValue="completed">completed</gmd:MD_ProgressCode>
+         </gmd:status>
+         <gmd:pointOfContact>
+            <gmd:CI_ResponsibleParty>
+               <gmd:organisationName>
+                  <gco:CharacterString>NOAA Office for Coastal Management</gco:CharacterString>
+               </gmd:organisationName>
+               <gmd:contactInfo>
+                  <gmd:CI_Contact>
+                     <gmd:phone>
+                        <gmd:CI_Telephone>
+                           <gmd:voice>
+                              <gco:CharacterString>(843) 740-1202</gco:CharacterString>
+                           </gmd:voice>
+                        </gmd:CI_Telephone>
+                     </gmd:phone>
+                     <gmd:address>
+                        <gmd:CI_Address>
+                           <gmd:deliveryPoint>
+                              <gco:CharacterString>2234 South Hobson Ave</gco:CharacterString>
+                           </gmd:deliveryPoint>
+                           <gmd:city>
+                              <gco:CharacterString>Charleston</gco:CharacterString>
+                           </gmd:city>
+                           <gmd:administrativeArea>
+                              <gco:CharacterString>SC</gco:CharacterString>
+                           </gmd:administrativeArea>
+                           <gmd:postalCode>
+                              <gco:CharacterString>29405-2413</gco:CharacterString>
+                           </gmd:postalCode>
+                           <gmd:country gco:nilReason="missing"/>
+                           <gmd:electronicMailAddress>
+                              <gco:CharacterString>coastal.info@noaa.gov</gco:CharacterString>
+                           </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                     </gmd:address>
+                     <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                           <gmd:linkage>
+                              <gmd:URL>https://coast.noaa.gov</gmd:URL>
+                           </gmd:linkage>
+                           <gmd:protocol>
+                              <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                           </gmd:protocol>
+                           <gmd:name>
+                              <gco:CharacterString>NOAA Office for Coastal Management Website</gco:CharacterString>
+                           </gmd:name>
+                           <gmd:description>
+                              <gco:CharacterString>NOAA Office for Coastal Management Home Page</gco:CharacterString>
+                           </gmd:description>
+                           <gmd:function>
+                              <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                         codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                           </gmd:function>
+                        </gmd:CI_OnlineResource>
+                     </gmd:onlineResource>
+                  </gmd:CI_Contact>
+               </gmd:contactInfo>
+               <gmd:role>
+                  <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                                   codeListValue="pointOfContact">pointOfContact</gmd:CI_RoleCode>
+               </gmd:role>
+            </gmd:CI_ResponsibleParty>
+         </gmd:pointOfContact>
+         <gmd:pointOfContact>
+            <gmd:CI_ResponsibleParty>
+               <gmd:organisationName>
+                  <gco:CharacterString>NOAA Office for Coastal Management</gco:CharacterString>
+               </gmd:organisationName>
+               <gmd:contactInfo>
+                  <gmd:CI_Contact>
+                     <gmd:phone>
+                        <gmd:CI_Telephone>
+                           <gmd:voice>
+                              <gco:CharacterString>(843) 740-1202</gco:CharacterString>
+                           </gmd:voice>
+                        </gmd:CI_Telephone>
+                     </gmd:phone>
+                     <gmd:address>
+                        <gmd:CI_Address>
+                           <gmd:deliveryPoint>
+                              <gco:CharacterString>2234 South Hobson Ave</gco:CharacterString>
+                           </gmd:deliveryPoint>
+                           <gmd:city>
+                              <gco:CharacterString>Charleston</gco:CharacterString>
+                           </gmd:city>
+                           <gmd:administrativeArea>
+                              <gco:CharacterString>SC</gco:CharacterString>
+                           </gmd:administrativeArea>
+                           <gmd:postalCode>
+                              <gco:CharacterString>29405-2413</gco:CharacterString>
+                           </gmd:postalCode>
+                           <gmd:country gco:nilReason="missing"/>
+                           <gmd:electronicMailAddress>
+                              <gco:CharacterString>coastal.info@noaa.gov</gco:CharacterString>
+                           </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                     </gmd:address>
+                     <gmd:onlineResource>
+                        <gmd:CI_OnlineResource>
+                           <gmd:linkage>
+                              <gmd:URL>https://coast.noaa.gov</gmd:URL>
+                           </gmd:linkage>
+                           <gmd:protocol>
+                              <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                           </gmd:protocol>
+                           <gmd:name>
+                              <gco:CharacterString>NOAA Office for Coastal Management Website</gco:CharacterString>
+                           </gmd:name>
+                           <gmd:description>
+                              <gco:CharacterString>NOAA Office for Coastal Management Home Page</gco:CharacterString>
+                           </gmd:description>
+                           <gmd:function>
+                              <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                         codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                           </gmd:function>
+                        </gmd:CI_OnlineResource>
+                     </gmd:onlineResource>
+                  </gmd:CI_Contact>
+               </gmd:contactInfo>
+               <gmd:role>
+                  <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                                   codeListValue="custodian">custodian</gmd:CI_RoleCode>
+               </gmd:role>
+            </gmd:CI_ResponsibleParty>
+         </gmd:pointOfContact>
+         <gmd:resourceMaintenance>
+            <gmd:MD_MaintenanceInformation>
+               <gmd:maintenanceAndUpdateFrequency>
+                  <gmd:MD_MaintenanceFrequencyCode codeList="http://www.tc211.org/ISO19139/resources/codeList.xml#MD_MaintenanceFrequencyCode"
+                                                   codeListValue="notPlanned">notPlanned</gmd:MD_MaintenanceFrequencyCode>
+               </gmd:maintenanceAndUpdateFrequency>
+            </gmd:MD_MaintenanceInformation>
+         </gmd:resourceMaintenance>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>EARTH SCIENCE &gt; LAND SURFACE &gt; TOPOGRAPHY &gt; TERRAIN ELEVATION</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>EARTH SCIENCE &gt; LAND SURFACE &gt; TOPOGRAPHY &gt; TERRAIN ELEVATION &gt; DIGITAL ELEVATION/TERRAIN MODEL (DEM)</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>EARTH SCIENCE &gt; OCEANS &gt; COASTAL PROCESSES &gt; COASTAL ELEVATION</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_KeywordTypeCode"
+                                          codeListValue="theme">theme</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>Global Change Master Directory (GCMD) Science Keywords</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="missing"/>
+                     <gmd:edition>
+                        <gco:CharacterString>17.0</gco:CharacterString>
+                     </gmd:edition>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>CONTINENT &gt; NORTH AMERICA &gt; UNITED STATES OF AMERICA</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>CONTINENT &gt; NORTH AMERICA &gt; UNITED STATES OF AMERICA &gt; HAWAII</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>OCEAN &gt; PACIFIC OCEAN &gt; CENTRAL PACIFIC OCEAN &gt; HAWAIIAN ISLANDS &gt; KAHOOLAWE</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>OCEAN &gt; PACIFIC OCEAN &gt; CENTRAL PACIFIC OCEAN &gt; HAWAIIAN ISLANDS &gt; LANAI</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>OCEAN &gt; PACIFIC OCEAN &gt; CENTRAL PACIFIC OCEAN &gt; HAWAIIAN ISLANDS &gt; MAUI</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>OCEAN &gt; PACIFIC OCEAN &gt; CENTRAL PACIFIC OCEAN &gt; HAWAIIAN ISLANDS &gt; MOLOKAI</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>OCEAN &gt; PACIFIC OCEAN &gt; CENTRAL PACIFIC OCEAN &gt; HAWAIIAN ISLANDS &gt; OAHU</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:keyword>
+                  <gco:CharacterString>VERTICAL LOCATION &gt; LAND SURFACE</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_KeywordTypeCode"
+                                          codeListValue="place">place</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>Global Change Master Directory (GCMD) Location Keywords</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="missing"/>
+                     <gmd:edition>
+                        <gco:CharacterString>20.8</gco:CharacterString>
+                     </gmd:edition>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>LIDAR &gt; Light Detection and Ranging</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_KeywordTypeCode"
+                                          codeListValue="instrument">instrument</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>Global Change Master Directory (GCMD) Instrument Keywords</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="missing"/>
+                     <gmd:edition>
+                        <gco:CharacterString>17.2</gco:CharacterString>
+                     </gmd:edition>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>Airplane &gt; Airplane</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_KeywordTypeCode"
+                                          codeListValue="platform">platform</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>Global Change Master Directory (GCMD) Platform Keywords</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="missing"/>
+                     <gmd:edition>
+                        <gco:CharacterString>17.2</gco:CharacterString>
+                     </gmd:edition>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>DOC/NOAA/NOS/OCM &gt; Office of Coastal Management, National Ocean Service, NOAA, U.S. Department of Commerce</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="https://data.noaa.gov/resources/iso19139/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode"
+                                          codeListValue="dataCentre">dataCentre</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation uuid="9f0de6e6-428b-11df-9879-0800200c9a66">
+                     <gmd:title>
+                        <gco:CharacterString>Global Change Master Directory (GCMD) Data Center Keywords</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date>
+                        <gmd:CI_Date>
+                           <gmd:date>
+                              <gco:Date>2017-04-24</gco:Date>
+                           </gmd:date>
+                           <gmd:dateType>
+                              <gmd:CI_DateTypeCode codeList="https://data.noaa.gov/resources/iso19139/schema/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode"
+                                                   codeListValue="publication">publication</gmd:CI_DateTypeCode>
+                           </gmd:dateType>
+                        </gmd:CI_Date>
+                     </gmd:date>
+                     <gmd:edition>
+                        <gco:CharacterString>8.5</gco:CharacterString>
+                     </gmd:edition>
+                     <gmd:citedResponsibleParty xlink:href="https://data.noaa.gov/docucomp/1edb41d0-428a-11df-9879-0800200c9a66"
+                                                xlink:title="GCMD Landing Page"/>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>Lidar</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:type>
+                  <gmd:MD_KeywordTypeCode codeList="https://data.noaa.gov/resources/iso19139/schema/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode"
+                                          codeListValue="project">project</gmd:MD_KeywordTypeCode>
+               </gmd:type>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>InPort</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="inapplicable"/>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:resourceConstraints>
+            <gmd:MD_LegalConstraints>
+               <gmd:useConstraints>
+                  <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_RestrictionCode"
+                                          codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+               </gmd:useConstraints>
+               <gmd:otherConstraints>
+                  <gco:CharacterString>Cite As: Office for Coastal Management, [Date of Access]: 2022 - 2023 NOAA USGS Lidar DEM: HI (Kahoolawe, Lanai, Maui, Molokai, Oahu) [Data Date Range], https://www.fisheries.noaa.gov/inport/item/75971.</gco:CharacterString>
+               </gmd:otherConstraints>
+            </gmd:MD_LegalConstraints>
+         </gmd:resourceConstraints>
+         <gmd:resourceConstraints>
+            <gmd:MD_Constraints>
+               <gmd:useLimitation>
+                  <gco:CharacterString>NOAA provides no warranty, nor accepts any liability occurring from any incomplete, incorrect, or misleading data, or from any incorrect, incomplete, or misleading use of the data. It is the responsibility of the user to determine whether or not the data is suitable for the intended purpose.</gco:CharacterString>
+               </gmd:useLimitation>
+            </gmd:MD_Constraints>
+         </gmd:resourceConstraints>
+         <gmd:resourceConstraints>
+            <gmd:MD_LegalConstraints>
+               <gmd:accessConstraints>
+                  <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_RestrictionCode"
+                                          codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+               </gmd:accessConstraints>
+               <gmd:otherConstraints>
+                  <gco:CharacterString>Access Constraints: None</gco:CharacterString>
+               </gmd:otherConstraints>
+            </gmd:MD_LegalConstraints>
+         </gmd:resourceConstraints>
+         <gmd:resourceConstraints>
+            <gmd:MD_LegalConstraints>
+               <gmd:useConstraints>
+                  <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_RestrictionCode"
+                                          codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+               </gmd:useConstraints>
+               <gmd:otherConstraints>
+                  <gco:CharacterString>Use Constraints: Users should be aware that temporal changes may have occurred since this data set was collected and some parts of this data may no longer represent actual surface conditions. Users should not use this data for critical applications without a full awareness of its limitations.
+
+Acknowledgement of the U.S. Geological Survey would be appreciated for products derived from these data. Woolpert prepared the original data as set forth in the Scope of Services, in accordance with reasonable care and due diligence as set forth in this Agreement, however, due to the easily alterable nature of electronic media, files, documents, and other deliverables, Woolpert makes no warranties, either expressed or implied, with respect to the accuracy, completeness, merchantability, or fitness for any particular purpose, including, but not limited to, use of any/all data as described within this metadata file, by any user of this data. Any use will be at the end-user's sole risk.</gco:CharacterString>
+               </gmd:otherConstraints>
+            </gmd:MD_LegalConstraints>
+         </gmd:resourceConstraints>
+         <gmd:resourceConstraints>
+            <gmd:MD_LegalConstraints>
+               <gmd:useLimitation>
+                  <gmd:MD_RestrictionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_RestrictionCode"
+                                          codeListValue="otherRestrictions">otherRestrictions</gmd:MD_RestrictionCode>
+               </gmd:useLimitation>
+               <gmd:otherConstraints>
+                  <gco:CharacterString>Distribution Liability: Any conclusions drawn from the analysis of this information are not the responsibility of NOAA, the Office for Coastal Management or its partners.</gco:CharacterString>
+               </gmd:otherConstraints>
+            </gmd:MD_LegalConstraints>
+         </gmd:resourceConstraints>
+         <gmd:resourceConstraints>
+            <gmd:MD_SecurityConstraints>
+               <gmd:classification>
+                  <gmd:MD_ClassificationCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_ClassificationCode"
+                                             codeListValue="unclassified">unclassified</gmd:MD_ClassificationCode>
+               </gmd:classification>
+               <gmd:classificationSystem gco:nilReason="missing"/>
+               <gmd:handlingDescription gco:nilReason="missing"/>
+            </gmd:MD_SecurityConstraints>
+         </gmd:resourceConstraints>
+         <gmd:aggregationInfo>
+            <gmd:MD_AggregateInformation>
+               <gmd:aggregateDataSetName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>2023 NOAA USGS Lidar DEM: Hawaii (Big Island)</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="unknown"/>
+                     <gmd:identifier>
+                        <gmd:MD_Identifier>
+                           <gmd:authority>
+                              <gmd:CI_Citation>
+                                 <gmd:title>
+                                    <gco:CharacterString>NOAA/NMFS/EDM</gco:CharacterString>
+                                 </gmd:title>
+                                 <gmd:date gco:nilReason="inapplicable"/>
+                              </gmd:CI_Citation>
+                           </gmd:authority>
+                           <gmd:code>
+                              <gco:CharacterString>75960</gco:CharacterString>
+                           </gmd:code>
+                        </gmd:MD_Identifier>
+                     </gmd:identifier>
+                  </gmd:CI_Citation>
+               </gmd:aggregateDataSetName>
+               <gmd:associationType>
+                  <gmd:DS_AssociationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#DS_AssociationTypeCode"
+                                              codeListValue="crossReference">crossReference</gmd:DS_AssociationTypeCode>
+               </gmd:associationType>
+            </gmd:MD_AggregateInformation>
+         </gmd:aggregationInfo>
+         <gmd:aggregationInfo>
+            <gmd:MD_AggregateInformation>
+               <gmd:aggregateDataSetName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>2023 NOAA USGS Lidar: Hawaii (Big Island)</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="unknown"/>
+                     <gmd:identifier>
+                        <gmd:MD_Identifier>
+                           <gmd:authority>
+                              <gmd:CI_Citation>
+                                 <gmd:title>
+                                    <gco:CharacterString>NOAA/NMFS/EDM</gco:CharacterString>
+                                 </gmd:title>
+                                 <gmd:date gco:nilReason="inapplicable"/>
+                              </gmd:CI_Citation>
+                           </gmd:authority>
+                           <gmd:code>
+                              <gco:CharacterString>75958</gco:CharacterString>
+                           </gmd:code>
+                        </gmd:MD_Identifier>
+                     </gmd:identifier>
+                  </gmd:CI_Citation>
+               </gmd:aggregateDataSetName>
+               <gmd:associationType>
+                  <gmd:DS_AssociationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#DS_AssociationTypeCode"
+                                              codeListValue="crossReference">crossReference</gmd:DS_AssociationTypeCode>
+               </gmd:associationType>
+            </gmd:MD_AggregateInformation>
+         </gmd:aggregationInfo>
+         <gmd:aggregationInfo>
+            <gmd:MD_AggregateInformation>
+               <gmd:aggregateDataSetName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>NOAA Data Management Plan (DMP)</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date gco:nilReason="unknown"/>
+                     <gmd:identifier>
+                        <gmd:MD_Identifier>
+                           <gmd:authority>
+                              <gmd:CI_Citation>
+                                 <gmd:title>
+                                    <gco:CharacterString>NOAA/NMFS/EDM</gco:CharacterString>
+                                 </gmd:title>
+                                 <gmd:date gco:nilReason="inapplicable"/>
+                              </gmd:CI_Citation>
+                           </gmd:authority>
+                           <gmd:code>
+                              <gco:CharacterString>75971</gco:CharacterString>
+                           </gmd:code>
+                        </gmd:MD_Identifier>
+                     </gmd:identifier>
+                     <gmd:citedResponsibleParty>
+                        <gmd:CI_ResponsibleParty>
+                           <gmd:organisationName gco:nilReason="inapplicable"/>
+                           <gmd:contactInfo>
+                              <gmd:CI_Contact>
+                                 <gmd:onlineResource>
+                                    <gmd:CI_OnlineResource>
+                                       <gmd:linkage>
+                                          <gmd:URL>https://www.fisheries.noaa.gov/inportserve/waf/noaa/nos/ocm/dmp/pdf/75971.pdf</gmd:URL>
+                                       </gmd:linkage>
+                                       <gmd:protocol>
+                                          <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                       </gmd:protocol>
+                                       <gmd:name>
+                                          <gco:CharacterString>NOAA Data Management Plan (DMP)</gco:CharacterString>
+                                       </gmd:name>
+                                       <gmd:description>
+                                          <gco:CharacterString>NOAA Data Management Plan for this record on InPort.</gco:CharacterString>
+                                       </gmd:description>
+                                       <gmd:function>
+                                          <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                                     codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                                       </gmd:function>
+                                    </gmd:CI_OnlineResource>
+                                 </gmd:onlineResource>
+                              </gmd:CI_Contact>
+                           </gmd:contactInfo>
+                           <gmd:role gco:nilReason="inapplicable"/>
+                        </gmd:CI_ResponsibleParty>
+                     </gmd:citedResponsibleParty>
+                  </gmd:CI_Citation>
+               </gmd:aggregateDataSetName>
+               <gmd:associationType>
+                  <gmd:DS_AssociationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#DS_AssociationTypeCode"
+                                              codeListValue="crossReference">crossReference</gmd:DS_AssociationTypeCode>
+               </gmd:associationType>
+            </gmd:MD_AggregateInformation>
+         </gmd:aggregationInfo>
+         <gmd:spatialRepresentationType>
+            <gmd:MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:MD_SpatialRepresentationTypeCode"
+                                                  codeListValue="grid">grid</gmd:MD_SpatialRepresentationTypeCode>
+         </gmd:spatialRepresentationType>
+         <gmd:language>
+            <gco:CharacterString>eng; US</gco:CharacterString>
+         </gmd:language>
+         <gmd:topicCategory>
+            <gmd:MD_TopicCategoryCode>elevation</gmd:MD_TopicCategoryCode>
+         </gmd:topicCategory>
+         <gmd:environmentDescription>
+            <gco:CharacterString>Microsoft Windows 10, ArcMap 10.7, ArcCatalog 10.7, TerraScan ver. 23, TerraModeler ver. 23, LP360, LAStools.</gco:CharacterString>
+         </gmd:environmentDescription>
+         <gmd:extent>
+            <gmd:EX_Extent>
+               <gmd:geographicElement>
+                  <gmd:EX_GeographicBoundingBox>
+                     <gmd:westBoundLongitude>
+                        <gco:Decimal>-158.241757</gco:Decimal>
+                     </gmd:westBoundLongitude>
+                     <gmd:eastBoundLongitude>
+                        <gco:Decimal>-156.04943</gco:Decimal>
+                     </gmd:eastBoundLongitude>
+                     <gmd:southBoundLatitude>
+                        <gco:Decimal>20.498885</gco:Decimal>
+                     </gmd:southBoundLatitude>
+                     <gmd:northBoundLatitude>
+                        <gco:Decimal>21.713592</gco:Decimal>
+                     </gmd:northBoundLatitude>
+                  </gmd:EX_GeographicBoundingBox>
+               </gmd:geographicElement>
+               <gmd:temporalElement>
+                  <gmd:EX_TemporalExtent>
+                     <gmd:extent>
+                        <gml:TimePeriod gml:id="boundingTemporalExtent-1-1">
+                           <gml:description>Dates of collection for Maui and Oahu | Currentness: Ground Condition</gml:description>
+                           <gml:beginPosition>2023-01-11</gml:beginPosition>
+                           <gml:endPosition>2023-07-07</gml:endPosition>
+                        </gml:TimePeriod>
+                     </gmd:extent>
+                  </gmd:EX_TemporalExtent>
+               </gmd:temporalElement>
+               <gmd:temporalElement>
+                  <gmd:EX_TemporalExtent>
+                     <gmd:extent>
+                        <gml:TimePeriod gml:id="boundingTemporalExtent-1-2">
+                           <gml:description>Dates of collection for Kahoolawe, Lanai, and Molokai | Currentness: Ground Condition</gml:description>
+                           <gml:beginPosition>2022-08-02</gml:beginPosition>
+                           <gml:endPosition>2023-07-09</gml:endPosition>
+                        </gml:TimePeriod>
+                     </gmd:extent>
+                  </gmd:EX_TemporalExtent>
+               </gmd:temporalElement>
+            </gmd:EX_Extent>
+         </gmd:extent>
+         <gmd:supplementalInformation>
+            <gco:CharacterString>USGS Contract No. G16PC00022, Task Order No. 140G0220F0290, Project Name: HI_NOAAMauiOahu_1_B20. Contractor: Woolpert. Raster File Type = TIFF Bit Depth/Pixel Type = 32-bit float Raster Cell Size = 0.5-meter Interpolation or Re-sampling Technique = Triangulated Irregular Network Required Vertical Accuracy = 19.6 cm NVA</gco:CharacterString>
+         </gmd:supplementalInformation>
+      </gmd:MD_DataIdentification>
+   </gmd:identificationInfo>
+   <gmd:distributionInfo>
+      <gmd:MD_Distribution>
+         <gmd:distributionFormat>
+            <gmd:MD_Format>
+               <gmd:name gco:nilReason="inapplicable"/>
+               <gmd:version gco:nilReason="missing"/>
+               <gmd:fileDecompressionTechnique>
+                  <gco:CharacterString>Zip</gco:CharacterString>
+               </gmd:fileDecompressionTechnique>
+            </gmd:MD_Format>
+         </gmd:distributionFormat>
+         <gmd:distributionFormat>
+            <gmd:MD_Format>
+               <gmd:name>
+                  <gco:CharacterString>GeoTIFF</gco:CharacterString>
+               </gmd:name>
+               <gmd:version gco:nilReason="missing"/>
+            </gmd:MD_Format>
+         </gmd:distributionFormat>
+         <gmd:distributor>
+            <gmd:MD_Distributor>
+               <gmd:distributorContact>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:organisationName>
+                        <gco:CharacterString>NOAA Office for Coastal Management</gco:CharacterString>
+                     </gmd:organisationName>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:phone>
+                              <gmd:CI_Telephone>
+                                 <gmd:voice>
+                                    <gco:CharacterString>(843) 740-1202</gco:CharacterString>
+                                 </gmd:voice>
+                              </gmd:CI_Telephone>
+                           </gmd:phone>
+                           <gmd:address>
+                              <gmd:CI_Address>
+                                 <gmd:deliveryPoint>
+                                    <gco:CharacterString>2234 South Hobson Ave</gco:CharacterString>
+                                 </gmd:deliveryPoint>
+                                 <gmd:city>
+                                    <gco:CharacterString>Charleston</gco:CharacterString>
+                                 </gmd:city>
+                                 <gmd:administrativeArea>
+                                    <gco:CharacterString>SC</gco:CharacterString>
+                                 </gmd:administrativeArea>
+                                 <gmd:postalCode>
+                                    <gco:CharacterString>29405-2413</gco:CharacterString>
+                                 </gmd:postalCode>
+                                 <gmd:country gco:nilReason="missing"/>
+                                 <gmd:electronicMailAddress>
+                                    <gco:CharacterString>coastal.info@noaa.gov</gco:CharacterString>
+                                 </gmd:electronicMailAddress>
+                              </gmd:CI_Address>
+                           </gmd:address>
+                           <gmd:onlineResource>
+                              <gmd:CI_OnlineResource>
+                                 <gmd:linkage>
+                                    <gmd:URL>https://coast.noaa.gov</gmd:URL>
+                                 </gmd:linkage>
+                                 <gmd:protocol>
+                                    <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                                 </gmd:protocol>
+                                 <gmd:name>
+                                    <gco:CharacterString>NOAA Office for Coastal Management Website</gco:CharacterString>
+                                 </gmd:name>
+                                 <gmd:description>
+                                    <gco:CharacterString>NOAA Office for Coastal Management Home Page</gco:CharacterString>
+                                 </gmd:description>
+                                 <gmd:function>
+                                    <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                               codeListValue="information">information</gmd:CI_OnLineFunctionCode>
+                                 </gmd:function>
+                              </gmd:CI_OnlineResource>
+                           </gmd:onlineResource>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                                         codeListValue="distributor">distributor</gmd:CI_RoleCode>
+                     </gmd:role>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:distributorContact>
+            </gmd:MD_Distributor>
+         </gmd:distributor>
+         <gmd:transferOptions>
+            <gmd:MD_DigitalTransferOptions>
+               <gmd:onLine>
+                  <gmd:CI_OnlineResource>
+                     <gmd:linkage>
+                        <gmd:URL>https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=10335/details/10335</gmd:URL>
+                     </gmd:linkage>
+                     <gmd:protocol>
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </gmd:protocol>
+                     <gmd:name>
+                        <gco:CharacterString>Customized Download</gco:CharacterString>
+                     </gmd:name>
+                     <gmd:description>
+                        <gco:CharacterString>Create custom data files by choosing data area, map projection, file format, etc. A new metadata will be produced to reflect your request using this record as a base.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                   codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                     </gmd:function>
+                  </gmd:CI_OnlineResource>
+               </gmd:onLine>
+            </gmd:MD_DigitalTransferOptions>
+         </gmd:transferOptions>
+         <gmd:transferOptions>
+            <gmd:MD_DigitalTransferOptions>
+               <gmd:onLine>
+                  <gmd:CI_OnlineResource>
+                     <gmd:linkage>
+                        <gmd:URL>https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/dem/HI_Kahoo_Lanai_Maui_Molo_Oahu_DEM_2022_10335/index.html</gmd:URL>
+                     </gmd:linkage>
+                     <gmd:protocol>
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </gmd:protocol>
+                     <gmd:name>
+                        <gco:CharacterString>Bulk Download</gco:CharacterString>
+                     </gmd:name>
+                     <gmd:description>
+                        <gco:CharacterString>Bulk download of data files in NAD83 (PA11), UTM 4N (EPSG 6634), meters coordinates and elevations in NAVD88 (GEOID12B), meters.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:function>
+                        <gmd:CI_OnLineFunctionCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_OnLineFunctionCode"
+                                                   codeListValue="download">download</gmd:CI_OnLineFunctionCode>
+                     </gmd:function>
+                  </gmd:CI_OnlineResource>
+               </gmd:onLine>
+            </gmd:MD_DigitalTransferOptions>
+         </gmd:transferOptions>
+      </gmd:MD_Distribution>
+   </gmd:distributionInfo>
+   <gmd:dataQualityInfo>
+      <gmd:DQ_DataQuality>
+         <gmd:scope>
+            <gmd:DQ_Scope>
+               <gmd:level>
+                  <gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode"
+                                    codeListValue="dataset">dataset</gmd:MD_ScopeCode>
+               </gmd:level>
+            </gmd:DQ_Scope>
+         </gmd:scope>
+         <gmd:report>
+            <gmd:DQ_AbsoluteExternalPositionalAccuracy>
+               <gmd:nameOfMeasure>
+                  <gco:CharacterString>Horizontal Positional Accuracy</gco:CharacterString>
+               </gmd:nameOfMeasure>
+               <gmd:evaluationMethodDescription>
+                  <gco:CharacterString>This data set was produced to meet ASPRS Positional Accuracy Standards for Digital Geospatial Data (2014) for a 0.11 m RMSEx / RMSEy Horizontal Accuracy Class which equates to Positional Horizontal Accuracy = +/-  0.29 m at a 95% confidence level.</gco:CharacterString>
+               </gmd:evaluationMethodDescription>
+               <gmd:result gco:nilReason="missing"/>
+            </gmd:DQ_AbsoluteExternalPositionalAccuracy>
+         </gmd:report>
+         <gmd:report>
+            <gmd:DQ_AbsoluteExternalPositionalAccuracy>
+               <gmd:nameOfMeasure>
+                  <gco:CharacterString>Vertical Positional Accuracy</gco:CharacterString>
+               </gmd:nameOfMeasure>
+               <gmd:evaluationMethodDescription>
+                  <gco:CharacterString>This data set was produced to meet ASPRS Positional Accuracy Standard for Digital Geospatial Data (2014) for a 10-cm RMSEz Vertical Accuracy Class.
+
+USGS Determined DEM Vertical Accuracy
+NVA = 7.48 cm RMSE
+VVA = 31.07 cm at 95th percentile
+
+For more information see the USGS project report and the lidar reports. The links to these reports are provided in the URL section of this metadata record.</gco:CharacterString>
+               </gmd:evaluationMethodDescription>
+               <gmd:result gco:nilReason="missing"/>
+            </gmd:DQ_AbsoluteExternalPositionalAccuracy>
+         </gmd:report>
+         <gmd:report>
+            <gmd:DQ_CompletenessCommission>
+               <gmd:nameOfMeasure>
+                  <gco:CharacterString>Completeness Report</gco:CharacterString>
+               </gmd:nameOfMeasure>
+               <gmd:evaluationMethodDescription>
+                  <gco:CharacterString>Datasets contain complete coverage of tiles. No points have been removed or excluded. A visual qualitative assessment was performed to ensure data completeness. There are no void areas or missing data. The DEM is of good quality and data passes Non-Vegetated and Vegetated Vertical Accuracy specifications.</gco:CharacterString>
+               </gmd:evaluationMethodDescription>
+               <gmd:result gco:nilReason="missing"/>
+            </gmd:DQ_CompletenessCommission>
+         </gmd:report>
+         <gmd:report>
+            <gmd:DQ_ConceptualConsistency>
+               <gmd:nameOfMeasure>
+                  <gco:CharacterString>Conceptual Consistency</gco:CharacterString>
+               </gmd:nameOfMeasure>
+               <gmd:evaluationMethodDescription>
+                  <gco:CharacterString>Data covers the entire area specified for this project.</gco:CharacterString>
+               </gmd:evaluationMethodDescription>
+               <gmd:result gco:nilReason="missing"/>
+            </gmd:DQ_ConceptualConsistency>
+         </gmd:report>
+         <gmd:lineage>
+            <gmd:LI_Lineage>
+               <gmd:statement>
+                  <gco:CharacterString>This data was collected for NOAA and the USGS by Woolpert. The NOAA Office for Coastal Management (OCM) received a copy of the data from Woolpert and processed the data to make it available for custom download from the NOAA Digital Coast Data Access Viewer and for bulk download from AWS S3.</gco:CharacterString>
+               </gmd:statement>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>After acquisition QC was complete, a formal reduction process was performed. Boresight calibrations (omega, phi, kappa) are performed, and a block adjustment is made to ensure relative accuracy. The laser point position was then calculated by associating the SBET position to each laser point return time, scan angle, intensity, etc. Raw laser point cloud data was created for the whole project area in LAS format with each point containing the corresponding scan angle, return number (echo), intensity, and x, y, and z information. Automated line-to-line calibrations were then performed for system attitude parameters (pitch, roll, heading), mirror flex (scale) and GPS/IMU drift to test the relative calibration. Calibrations were performed on ground classified points from paired flight lines. Every flight line was used for relative accuracy calibration. Statistical reports were generated for comparison and used to make the necessary adjustments to remove any residual systematic error.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-26T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>Lidar Point Cloud Classification: The point cloud underwent a classification process to determine bare-earth points and non-ground points utilizing "first and only" as well as "last of many" lidar returns. This process determined Processed, but Unclassified (Class 1), Bare Earth Ground (Class 2), Low Noise (Class 7), Water (Class 9), Bridge Decks (Class 17), High Noise (Class 18), and Ignored Ground (Class 20). The bare-earth (Class 2 - Ground) lidar points underwent a manual QA/QC step to verify the quality of the DEM as well as a peer-based QC review. This included a review of the DEM surface to remove artifacts and ensure topographic quality. After the bare-earth surface is finalized, it is then used to generate all hydro-breaklines through a semi-automated process. All ground (Class 2) lidar data inside of the Lake Pond and Double Line Drain hydro flattening breaklines were then classified to water (Class 9) using TerraScan/LP360 macro functionality. A buffer of 0.35 meters was also used around each hydro-flattened feature to classify these ground (Class 2) points to Ignored Ground (Class 20). All Lake Pond Island and Double Line Drain Island features were checked to ensure that the ground (Class 2) points were reclassified to the correct classification after the automated classification was completed. All data was manually reviewed and any remaining artifacts removed using functionality provided by TerraScan and TerraModeler. Global Mapper was used as a final check of the bare earth dataset. GeoCue was then used to create the deliverable industry-standard LAS files. Woolpert proprietary software and LP360 was used to perform final statistical analysis of the classes in the LAS files, on a per tile level to verify final classification metrics and full LAS header information.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-26T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>During the initial quality check, the lidar data was processed immediately following acquisition to verify the coverage has appropriate density, distribution, and no unacceptable data voids. The spatial distribution of the geometrically usable first return lidar points was reviewed for density by verifying the points spaced so that 90% of the cells in a 2*NPS grid placed over the data contain at least one lidar point. The Nominal Point Spacing (NPS) assessment was conducted against single swath, first return data located within the geometrically usable center portion (typically ~90%) of each swath. The data coverage was reviewed for unacceptable data voids to determine no area greater than or equal to (4 x ANPS)² exhibited data coverage gaps.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-26T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>Maximum Surface Height Rasters (MSHR) is a proof of performance check that the withheld bit flag was used properly in the point cloud. Using all returns in the point cloud and excluding any points flagged as withheld, a raster is generated at twice the pixel size as the DEM deliverable using the same delivery tile index. This raster is generated as a 32-bit floating-point GeoTIFF with each pixel being generated as highest-hit elevation. The raster is then visually reviewed for anomalies that might indicate improperly classified noise. Any issues encountered are then corrected in the point cloud and a new/updated raster is generated. 5,044 files were produced and clipped to the DPA. The GSD for the surface is 1 meter, which is two times the DEM cell size.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-26T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>The Swath Separation Imagery (SSI) was generated to visualize the DZ between the overlapping areas of the flight lines. To generate this surface a point insertion method was applied as the primary algorithm. Last returns were used, and points flagged as withheld or classified as noise were excluded. A GeoTIFF was generated, and the color ramp is based on a QL1 data product. The GSD for the raster is 1 meter, which is two times the DEM post spacing. Intensity values were modulated to 50% to ensure that there is no oversaturation of intensities values throughout the surface. After all calculations and surfaces were made, 5,044 files were produced and clipped to the data extent. The color ramp for the swath separation image is as follows: Less than 8-cm: Green, 8 to 16-cm: Yellow, 16-24-cm: Orange, Greater than 24-cm: Red.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-26T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>Hydro-Flattened Digital Elevation Models (DEMs): Class 2 (ground) lidar points in conjunction with the hydro breaklines as well bridge breaklines were used to create a 0.5-meter, hydro-flattened bare-earth raster DEM. Using automated scripting routines within ArcMap, a GeoTIFF file was created for each tile. Each surface is reviewed using Global Mapper to check for any surface anomalies or incorrect elevations found within the surface.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2024-07-30T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:processStep>
+                  <gmd:LI_ProcessStep>
+                     <gmd:description>
+                        <gco:CharacterString>The NOAA Office for Coastal Management (OCM) received 16,760 GeoTIFF files (5044 files for HI_NOAAMauiOahu_1 and 11,716 files for HI_NOAAMauiOahu_2) for the NOAA USGS Hawaii lidar project from Woolpert. The bare earth raster files were at a 0.5 m grid spacing. The data were in UTM Zone 4N NAD83 (PA11), meters coordinates and NAVD88 (Geoid12B) elevations in meters. OCM assigned the appropriate EPSG codes (Horiz - 6634, Vert - 5703) and copied the raster files to AWS S3 for Digital Coast storage and provisioning purposes.</gco:CharacterString>
+                     </gmd:description>
+                     <gmd:dateTime>
+                        <gco:DateTime>2025-05-20T00:00:00</gco:DateTime>
+                     </gmd:dateTime>
+                     <gmd:processor>
+                        <gmd:CI_ResponsibleParty>
+                           <gmd:organisationName>
+                              <gco:CharacterString>Office for Coastal Management</gco:CharacterString>
+                           </gmd:organisationName>
+                           <gmd:role>
+                              <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                                               codeListValue="processor">processor</gmd:CI_RoleCode>
+                           </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                     </gmd:processor>
+                  </gmd:LI_ProcessStep>
+               </gmd:processStep>
+               <gmd:source>
+                  <gmd:LI_Source>
+                     <gmd:sourceCitation>
+                        <gmd:CI_Citation>
+                           <gmd:title>
+                              <gco:CharacterString>GeoTIFF Files</gco:CharacterString>
+                           </gmd:title>
+                           <gmd:date gco:nilReason="missing"/>
+                           <gmd:citedResponsibleParty>
+                              <gmd:CI_ResponsibleParty>
+                                 <gmd:organisationName>
+                                    <gco:CharacterString>NOAA/USGS/Woolpert</gco:CharacterString>
+                                 </gmd:organisationName>
+                                 <gmd:role>
+                                    <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#gmd:CI_RoleCode"
+                                                     codeListValue="originator">originator</gmd:CI_RoleCode>
+                                 </gmd:role>
+                              </gmd:CI_ResponsibleParty>
+                           </gmd:citedResponsibleParty>
+                        </gmd:CI_Citation>
+                     </gmd:sourceCitation>
+                  </gmd:LI_Source>
+               </gmd:source>
+            </gmd:LI_Lineage>
+         </gmd:lineage>
+      </gmd:DQ_DataQuality>
+   </gmd:dataQualityInfo>
+</gmi:MI_Metadata>
