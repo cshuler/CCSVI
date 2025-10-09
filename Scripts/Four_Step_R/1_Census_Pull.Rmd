@@ -1,0 +1,251 @@
+---
+title: "01 Census Pull"
+output: html_document
+date: "2025-10-03"
+---
+
+# Step 0: Check for packages and install them if not already installed
+
+```{r setup, message=FALSE}
+# List all packages needed for this notebook
+required_packages <- c("httr", "jsonlite", "dplyr")
+
+# Check if each one is installed, and install it if missing
+for (pkg in required_packages) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+}
+
+# Confirm
+cat("✅ All packages loaded successfully!\n")
+```
+
+# Step 1: Setup
+
+This notebook pulls Census data using the API and prepares it for later steps.  
+
+
+```{r load packages and set up test}
+# Load required packages
+library(httr)
+library(jsonlite)
+library(dplyr)
+
+
+# Simple test request to Census API
+url <- "https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&for=state:*"
+res <- GET(url)
+census_raw <- fromJSON(content(res, "text"))
+
+# Check first 5 rows
+head(census_raw)
+```
+
+# Step 2: Get Census Data
+
+``` {r Test get Census Data}
+# Example URL for total population by state
+url <- "https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&for=state:*"
+
+# Make request
+res <- GET(url)
+
+# Convert JSON to data frame
+census_raw <- fromJSON(content(res, "text"))
+
+# First row is headers → convert to data frame
+census_df <- as.data.frame(census_raw[-1,], stringsAsFactors = FALSE)
+names(census_df) <- census_raw[1,]
+
+head(census_df)
+```
+
+# Step 3: Store variables for API Pull from Census
+
+```{R variable setup}
+# --- Census variable + URL setup (converted from your Python notebook) ---
+# Base URLs
+census_base_url <- "https://api.census.gov/"
+census_dataset_url <- "data/2022/acs/acs5"
+decennial_dataset_url <- "data/2020/dec/pl"
+
+# Variables as vectors (easier to edit than a long single string)
+census_variables1 <- c(
+  "GEO_ID","NAME","B01001_001E","B25034_006E","B25034_007E","B25034_008E",
+  "B25034_009E","B25034_010E","B25034_011E","B25046_001E","B27010_017E",
+  "B27010_033E","B27010_050E","B27010_066E","B28002_013E","C16002_004E",
+  "C16002_007E","C16002_010E","C16002_013E","B09019_005E","B09019_008E",
+  "B19101_001E","C17002_002E","C17002_003E","C17002_004E","C17002_005E",
+  "C17002_006E","C17002_007E","B20005_002E","B01001_003E","B01001_004E",
+  "B01001_005E","B01001_006E","B01001_020E","B01001_021E"
+)
+
+census_variables2 <- c(
+  "GEO_ID","C16002_004E","C16002_007E","C16002_010E","C16002_013E",
+  "B05013_017E","B05013_018E","B05013_019E","B16002_022E","B16002_025E",
+  "B01001_017E","B01001_018E","B01001_019E","B01001_016E","B16002_028E",
+  "B16002_031E","B16002_034E","B16002_037E","B01001_044E","B01001_045E",
+  "B01001_046E","B01001_047E","B01001_048E","B01001_049E","B02001_002E",
+  "B02001_003E","B02001_004E","B02001_005E","B02001_006E","B02001_007E",
+  "B02001_008E","B25008_003E"
+)
+
+decennial_variables3 <- c(
+  "GEO_ID","P5_002N","P5_003N","P5_004N","P5_005N","P5_008N","P5_009N","P5_010N"
+)
+```
+
+``` {R combine variables and generate URLs}
+# Collapse to comma-separated strings for the API 'get=' parameter
+census_variables1_str <- paste(census_variables1, collapse = ",")
+census_variables2_str <- paste(census_variables2, collapse = ",")
+decennial_variables3_str <- paste(decennial_variables3, collapse = ",")
+
+# Geography clause (URL-encoded spaces). State:15 = Hawaii
+# Change "state:15" to a different state FIPS if needed
+in_geography <- "&for=block%20group:*&in=state:15%20county:*%20tract:*"
+
+# Combined endpoints
+census_combined_url <- paste0(census_base_url, census_dataset_url)
+decennial_combined_url <- paste0(census_base_url, decennial_dataset_url)
+
+# Full query URLs (ready to GET)
+cbg_url1 <- paste0(census_combined_url, "?get=", census_variables1_str, in_geography)
+cbg_url2 <- paste0(census_combined_url, "?get=", census_variables2_str, in_geography)
+cbg_url3 <- paste0(decennial_combined_url, "?get=", decennial_variables3_str, in_geography)
+
+# Variable metadata (variables.json) URLs
+census_fields_url1 <- paste0(census_combined_url, "/variables.json")
+census_fields_url2 <- paste0(census_combined_url, "/subject/variables.json")
+census_fields_url3 <- paste0(decennial_combined_url, "/variables.json")
+
+# Quick preview (print the start of each URL to verify)
+#cat("CBG URL 1 (start):\n", substr(cbg_url1, 1, 200), "...\n\n")
+#cat("CBG URL 2 (start):\n", substr(cbg_url2, 1, 200), "...\n\n")
+#cat("CBG URL 3 (start):\n", substr(cbg_url3, 1, 200), "...\n\n")
+
+
+```
+``` {R Print full URLs for testing}
+cat("CBG URL 1:\n", cbg_url1, "\n\n")
+cat("CBG URL 2:\n", cbg_url2, "\n\n")
+cat("CBG URL 3:\n", cbg_url3, "\n\n")
+```
+# Step 4 Define function to fetch data from Census API and store in lists
+
+```{R Define fetch function}
+# Define a small helper function to fetch and convert JSON to data.frame
+fetch_census <- function(url) {
+  resp <- httr::GET(url)
+  if (resp$status_code != 200) {
+    stop(paste("Request failed with status", resp$status_code))
+  }
+  
+  # Convert JSON text to list, then to data.frame
+  raw_json <- httr::content(resp, "text")
+  data_list <- jsonlite::fromJSON(raw_json)
+  
+  # The first row of Census API results contains the column names
+  df <- as.data.frame(data_list[-1, ], stringsAsFactors = FALSE)
+  names(df) <- data_list[1, ]
+  
+  return(df)
+}
+```
+
+```{R Run function to pull data from Census API}
+# Fetch each dataset
+cbg1 <- fetch_census(cbg_url1)
+cbg2 <- fetch_census(cbg_url2)
+cbg3 <- fetch_census(cbg_url3)
+
+# Print quick summaries to verify
+cat("✅ Downloads complete!\n")
+cat("Rows in cbg1:", nrow(cbg1), "\n")
+cat("Rows in cbg2:", nrow(cbg2), "\n")
+cat("Rows in cbg3:", nrow(cbg3), "\n\n")
+
+# Peek at the structure of one
+head(cbg1[, 1:6])
+```
+
+
+# Merge first two block group dataframes
+
+```{r Merge Second DF with First, echo=TRUE}
+# Drop duplicate columns (except GEO_ID) from cbg2
+duplicate_columns <- intersect(names(cbg2), names(cbg1))
+duplicate_columns <- setdiff(duplicate_columns, "GEO_ID")
+
+if (length(duplicate_columns) > 0) {
+  message("Dropping duplicate columns: ", paste(duplicate_columns, collapse = ", "))
+  cbg2 <- cbg2[ , !(names(cbg2) %in% duplicate_columns)]
+}
+
+# Merge cbg1 and cbg2 on GEO_ID
+cbg <- merge(cbg1, cbg2, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_2"))
+
+# Quick check
+cat("Merged dataframe has", nrow(cbg), "rows and", ncol(cbg), "columns\n")
+head(cbg)
+```
+``` {R Merge Third DF with previously merged}
+# Drop duplicate columns (except GEO_ID) from cbg3
+duplicate_columns <- intersect(names(cbg3), names(cbg))
+duplicate_columns <- setdiff(duplicate_columns, "GEO_ID")
+
+if (length(duplicate_columns) > 0) {
+  message("Dropping duplicate columns: ", paste(duplicate_columns, collapse = ", "))
+  cbg3 <- cbg3[ , !(names(cbg3) %in% duplicate_columns)]
+}
+
+# Merge cbg (from previous step) with cbg3
+cbg <- merge(cbg, cbg3, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_3"))
+
+# Quick check
+cat("Merged dataframe now has", nrow(cbg), "rows and", ncol(cbg), "columns\n")
+head(cbg)
+```
+
+``` {R replace nulls with zeroes}
+cbg[is.na(cbg)] <- 0
+
+# Check if there are any nulls left
+print(any(is.na(cbg)))
+
+```
+
+``` {R convert numbers in DF to actual numeric fields}
+# Loop over all columns
+for (colname in names(cbg)) {
+  # Try converting to numeric
+  numeric_col <- suppressWarnings(as.numeric(cbg[[colname]]))
+  
+  # If there are no new NAs introduced, replace the column
+  if (!all(is.na(numeric_col) & !is.na(cbg[[colname]]))) {
+    cbg[[colname]] <- numeric_col
+  }
+}
+
+# Quick check: see the classes of all columns
+sapply(cbg, class)
+```
+
+
+``` {R create and calculate new LimitedEnglishHH field for limited english speaking households}
+
+# Check input fields first
+print(sapply(cbg[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], class))
+print(head(cbg[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], 10))
+
+# Create a new column by summing other columns
+cbg$LimitedEnglishHH <- cbg$C16002_004E + 
+                        cbg$C16002_007E + 
+                        cbg$C16002_010E + 
+                        cbg$C16002_013E
+
+# Preview the first few rows
+head(cbg$LimitedEnglishHH)
+```
