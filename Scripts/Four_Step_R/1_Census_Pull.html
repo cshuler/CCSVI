@@ -355,6 +355,24 @@ display: none;
 </div>
 
 
+<div id="step-0-check-for-packages-and-install-them-if-not-already-installed" class="section level1">
+<h1>Step 0: Check for packages and install them if not already
+installed</h1>
+<pre class="r"><code># List all packages needed for this notebook
+required_packages &lt;- c(&quot;httr&quot;, &quot;jsonlite&quot;, &quot;dplyr&quot;)
+
+# Check if each one is installed, and install it if missing
+for (pkg in required_packages) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+}
+
+# Confirm
+cat(&quot;✅ All packages loaded successfully!\n&quot;)</code></pre>
+<pre><code>## ✅ All packages loaded successfully!</code></pre>
+</div>
 <div id="step-1-setup" class="section level1">
 <h1>Step 1: Setup</h1>
 <p>This notebook pulls Census data using the API and prepares it for
@@ -379,6 +397,450 @@ head(census_raw)</code></pre>
 ## [4,] &quot;1793716&quot;  &quot;West Virginia&quot; &quot;54&quot;   
 ## [5,] &quot;3271616&quot;  &quot;Utah&quot;          &quot;49&quot;   
 ## [6,] &quot;20201249&quot; &quot;New York&quot;      &quot;36&quot;</code></pre>
+</div>
+<div id="step-2-get-census-data" class="section level1">
+<h1>Step 2: Get Census Data</h1>
+<pre class="r"><code># Example URL for total population by state
+url &lt;- &quot;https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&amp;for=state:*&quot;
+
+# Make request
+res &lt;- GET(url)
+
+# Convert JSON to data frame
+census_raw &lt;- fromJSON(content(res, &quot;text&quot;))
+
+# First row is headers → convert to data frame
+census_df &lt;- as.data.frame(census_raw[-1,], stringsAsFactors = FALSE)
+names(census_df) &lt;- census_raw[1,]
+
+head(census_df)</code></pre>
+<pre><code>##    P1_001N                 NAME state
+## 1 13002700         Pennsylvania    42
+## 2 39538223           California    06
+## 3  1793716        West Virginia    54
+## 4  3271616                 Utah    49
+## 5 20201249             New York    36
+## 6   689545 District of Columbia    11</code></pre>
+</div>
+<div id="step-3-store-variables-for-api-pull-from-census" class="section level1">
+<h1>Step 3: Store variables for API Pull from Census</h1>
+<pre class="r"><code># --- Census variable + URL setup (converted from your Python notebook) ---
+# Base URLs
+census_base_url &lt;- &quot;https://api.census.gov/&quot;
+census_dataset_url &lt;- &quot;data/2022/acs/acs5&quot;
+decennial_dataset_url &lt;- &quot;data/2020/dec/pl&quot;
+
+# Variables as vectors (easier to edit than a long single string)
+census_variables1 &lt;- c(
+  &quot;GEO_ID&quot;,&quot;NAME&quot;,&quot;B01001_001E&quot;,&quot;B25034_006E&quot;,&quot;B25034_007E&quot;,&quot;B25034_008E&quot;,
+  &quot;B25034_009E&quot;,&quot;B25034_010E&quot;,&quot;B25034_011E&quot;,&quot;B25046_001E&quot;,&quot;B27010_017E&quot;,
+  &quot;B27010_033E&quot;,&quot;B27010_050E&quot;,&quot;B27010_066E&quot;,&quot;B28002_013E&quot;,&quot;C16002_004E&quot;,
+  &quot;C16002_007E&quot;,&quot;C16002_010E&quot;,&quot;C16002_013E&quot;,&quot;B09019_005E&quot;,&quot;B09019_008E&quot;,
+  &quot;B19101_001E&quot;,&quot;C17002_002E&quot;,&quot;C17002_003E&quot;,&quot;C17002_004E&quot;,&quot;C17002_005E&quot;,
+  &quot;C17002_006E&quot;,&quot;C17002_007E&quot;,&quot;B20005_002E&quot;,&quot;B01001_003E&quot;,&quot;B01001_004E&quot;,
+  &quot;B01001_005E&quot;,&quot;B01001_006E&quot;,&quot;B01001_020E&quot;,&quot;B01001_021E&quot;
+)
+
+census_variables2 &lt;- c(
+  &quot;GEO_ID&quot;,&quot;C16002_004E&quot;,&quot;C16002_007E&quot;,&quot;C16002_010E&quot;,&quot;C16002_013E&quot;,
+  &quot;B05013_017E&quot;,&quot;B05013_018E&quot;,&quot;B05013_019E&quot;,&quot;B16002_022E&quot;,&quot;B16002_025E&quot;,
+  &quot;B01001_017E&quot;,&quot;B01001_018E&quot;,&quot;B01001_019E&quot;,&quot;B01001_016E&quot;,&quot;B16002_028E&quot;,
+  &quot;B16002_031E&quot;,&quot;B16002_034E&quot;,&quot;B16002_037E&quot;,&quot;B01001_044E&quot;,&quot;B01001_045E&quot;,
+  &quot;B01001_046E&quot;,&quot;B01001_047E&quot;,&quot;B01001_048E&quot;,&quot;B01001_049E&quot;,&quot;B02001_002E&quot;,
+  &quot;B02001_003E&quot;,&quot;B02001_004E&quot;,&quot;B02001_005E&quot;,&quot;B02001_006E&quot;,&quot;B02001_007E&quot;,
+  &quot;B02001_008E&quot;,&quot;B25008_003E&quot;
+)
+
+decennial_variables3 &lt;- c(
+  &quot;GEO_ID&quot;,&quot;P5_002N&quot;,&quot;P5_003N&quot;,&quot;P5_004N&quot;,&quot;P5_005N&quot;,&quot;P5_008N&quot;,&quot;P5_009N&quot;,&quot;P5_010N&quot;
+)</code></pre>
+<pre class="r"><code># Collapse to comma-separated strings for the API &#39;get=&#39; parameter
+census_variables1_str &lt;- paste(census_variables1, collapse = &quot;,&quot;)
+census_variables2_str &lt;- paste(census_variables2, collapse = &quot;,&quot;)
+decennial_variables3_str &lt;- paste(decennial_variables3, collapse = &quot;,&quot;)
+
+# Geography clause (URL-encoded spaces). State:15 = Hawaii
+# Change &quot;state:15&quot; to a different state FIPS if needed
+in_geography &lt;- &quot;&amp;for=block%20group:*&amp;in=state:15%20county:*%20tract:*&quot;
+
+# Combined endpoints
+census_combined_url &lt;- paste0(census_base_url, census_dataset_url)
+decennial_combined_url &lt;- paste0(census_base_url, decennial_dataset_url)
+
+# Full query URLs (ready to GET)
+cbg_url1 &lt;- paste0(census_combined_url, &quot;?get=&quot;, census_variables1_str, in_geography)
+cbg_url2 &lt;- paste0(census_combined_url, &quot;?get=&quot;, census_variables2_str, in_geography)
+cbg_url3 &lt;- paste0(decennial_combined_url, &quot;?get=&quot;, decennial_variables3_str, in_geography)
+
+# Variable metadata (variables.json) URLs
+census_fields_url1 &lt;- paste0(census_combined_url, &quot;/variables.json&quot;)
+census_fields_url2 &lt;- paste0(census_combined_url, &quot;/subject/variables.json&quot;)
+census_fields_url3 &lt;- paste0(decennial_combined_url, &quot;/variables.json&quot;)
+
+# Quick preview (print the start of each URL to verify)
+#cat(&quot;CBG URL 1 (start):\n&quot;, substr(cbg_url1, 1, 200), &quot;...\n\n&quot;)
+#cat(&quot;CBG URL 2 (start):\n&quot;, substr(cbg_url2, 1, 200), &quot;...\n\n&quot;)
+#cat(&quot;CBG URL 3 (start):\n&quot;, substr(cbg_url3, 1, 200), &quot;...\n\n&quot;)</code></pre>
+<pre class="r"><code>cat(&quot;CBG URL 1:\n&quot;, cbg_url1, &quot;\n\n&quot;)</code></pre>
+<pre><code>## CBG URL 1:
+##  https://api.census.gov/data/2022/acs/acs5?get=GEO_ID,NAME,B01001_001E,B25034_006E,B25034_007E,B25034_008E,B25034_009E,B25034_010E,B25034_011E,B25046_001E,B27010_017E,B27010_033E,B27010_050E,B27010_066E,B28002_013E,C16002_004E,C16002_007E,C16002_010E,C16002_013E,B09019_005E,B09019_008E,B19101_001E,C17002_002E,C17002_003E,C17002_004E,C17002_005E,C17002_006E,C17002_007E,B20005_002E,B01001_003E,B01001_004E,B01001_005E,B01001_006E,B01001_020E,B01001_021E&amp;for=block%20group:*&amp;in=state:15%20county:*%20tract:*</code></pre>
+<pre class="r"><code>cat(&quot;CBG URL 2:\n&quot;, cbg_url2, &quot;\n\n&quot;)</code></pre>
+<pre><code>## CBG URL 2:
+##  https://api.census.gov/data/2022/acs/acs5?get=GEO_ID,C16002_004E,C16002_007E,C16002_010E,C16002_013E,B05013_017E,B05013_018E,B05013_019E,B16002_022E,B16002_025E,B01001_017E,B01001_018E,B01001_019E,B01001_016E,B16002_028E,B16002_031E,B16002_034E,B16002_037E,B01001_044E,B01001_045E,B01001_046E,B01001_047E,B01001_048E,B01001_049E,B02001_002E,B02001_003E,B02001_004E,B02001_005E,B02001_006E,B02001_007E,B02001_008E,B25008_003E&amp;for=block%20group:*&amp;in=state:15%20county:*%20tract:*</code></pre>
+<pre class="r"><code>cat(&quot;CBG URL 3:\n&quot;, cbg_url3, &quot;\n\n&quot;)</code></pre>
+<pre><code>## CBG URL 3:
+##  https://api.census.gov/data/2020/dec/pl?get=GEO_ID,P5_002N,P5_003N,P5_004N,P5_005N,P5_008N,P5_009N,P5_010N&amp;for=block%20group:*&amp;in=state:15%20county:*%20tract:*</code></pre>
+</div>
+<div id="step-4-define-function-to-fetch-data-from-census-api-and-store-in-lists" class="section level1">
+<h1>Step 4 Define function to fetch data from Census API and store in
+lists</h1>
+<pre class="r"><code># Define a small helper function to fetch and convert JSON to data.frame
+fetch_census &lt;- function(url) {
+  resp &lt;- httr::GET(url)
+  if (resp$status_code != 200) {
+    stop(paste(&quot;Request failed with status&quot;, resp$status_code))
+  }
+  
+  # Convert JSON text to list, then to data.frame
+  raw_json &lt;- httr::content(resp, &quot;text&quot;)
+  data_list &lt;- jsonlite::fromJSON(raw_json)
+  
+  # The first row of Census API results contains the column names
+  df &lt;- as.data.frame(data_list[-1, ], stringsAsFactors = FALSE)
+  names(df) &lt;- data_list[1, ]
+  
+  return(df)
+}</code></pre>
+<pre class="r"><code># Fetch each dataset
+cbg1 &lt;- fetch_census(cbg_url1)
+cbg2 &lt;- fetch_census(cbg_url2)
+cbg3 &lt;- fetch_census(cbg_url3)
+
+# Print quick summaries to verify
+cat(&quot;✅ Downloads complete!\n&quot;)</code></pre>
+<pre><code>## ✅ Downloads complete!</code></pre>
+<pre class="r"><code>cat(&quot;Rows in cbg1:&quot;, nrow(cbg1), &quot;\n&quot;)</code></pre>
+<pre><code>## Rows in cbg1: 1083</code></pre>
+<pre class="r"><code>cat(&quot;Rows in cbg2:&quot;, nrow(cbg2), &quot;\n&quot;)</code></pre>
+<pre><code>## Rows in cbg2: 1083</code></pre>
+<pre class="r"><code>cat(&quot;Rows in cbg3:&quot;, nrow(cbg3), &quot;\n\n&quot;)</code></pre>
+<pre><code>## Rows in cbg3: 1083</code></pre>
+<pre class="r"><code># Peek at the structure of one
+head(cbg1[, 1:6])</code></pre>
+<pre><code>##                  GEO_ID
+## 1 1500000US150010201001
+## 2 1500000US150010201002
+## 3 1500000US150010201003
+## 4 1500000US150010201004
+## 5 1500000US150010202021
+## 6 1500000US150010202022
+##                                                        NAME B01001_001E
+## 1    Block Group 1; Census Tract 201; Hawaii County; Hawaii        1462
+## 2    Block Group 2; Census Tract 201; Hawaii County; Hawaii         602
+## 3    Block Group 3; Census Tract 201; Hawaii County; Hawaii        1339
+## 4    Block Group 4; Census Tract 201; Hawaii County; Hawaii        1096
+## 5 Block Group 1; Census Tract 202.02; Hawaii County; Hawaii        1279
+## 6 Block Group 2; Census Tract 202.02; Hawaii County; Hawaii        1023
+##   B25034_006E B25034_007E B25034_008E
+## 1          82         294          87
+## 2          24           7          57
+## 3         148          53          70
+## 4          32          48          56
+## 5          43          31          24
+## 6          46         110          61</code></pre>
+</div>
+<div id="merge-first-two-block-group-dataframes" class="section level1">
+<h1>Merge first two block group dataframes</h1>
+<pre class="r"><code># Drop duplicate columns (except GEO_ID) from cbg2
+duplicate_columns &lt;- intersect(names(cbg2), names(cbg1))
+duplicate_columns &lt;- setdiff(duplicate_columns, &quot;GEO_ID&quot;)
+
+if (length(duplicate_columns) &gt; 0) {
+  message(&quot;Dropping duplicate columns: &quot;, paste(duplicate_columns, collapse = &quot;, &quot;))
+  cbg2 &lt;- cbg2[ , !(names(cbg2) %in% duplicate_columns)]
+}</code></pre>
+<pre><code>## Dropping duplicate columns: C16002_004E, C16002_007E, C16002_010E, C16002_013E, state, county, tract, block group</code></pre>
+<pre class="r"><code># Merge cbg1 and cbg2 on GEO_ID
+cbg &lt;- merge(cbg1, cbg2, by = &quot;GEO_ID&quot;, all.x = TRUE, suffixes = c(&quot;&quot;, &quot;_2&quot;))
+
+# Quick check
+cat(&quot;Merged dataframe has&quot;, nrow(cbg), &quot;rows and&quot;, ncol(cbg), &quot;columns\n&quot;)</code></pre>
+<pre><code>## Merged dataframe has 1083 rows and 66 columns</code></pre>
+<pre class="r"><code>head(cbg)</code></pre>
+<pre><code>##                  GEO_ID
+## 1 1500000US150010201001
+## 2 1500000US150010201002
+## 3 1500000US150010201003
+## 4 1500000US150010201004
+## 5 1500000US150010202021
+## 6 1500000US150010202022
+##                                                        NAME B01001_001E
+## 1    Block Group 1; Census Tract 201; Hawaii County; Hawaii        1462
+## 2    Block Group 2; Census Tract 201; Hawaii County; Hawaii         602
+## 3    Block Group 3; Census Tract 201; Hawaii County; Hawaii        1339
+## 4    Block Group 4; Census Tract 201; Hawaii County; Hawaii        1096
+## 5 Block Group 1; Census Tract 202.02; Hawaii County; Hawaii        1279
+## 6 Block Group 2; Census Tract 202.02; Hawaii County; Hawaii        1023
+##   B25034_006E B25034_007E B25034_008E B25034_009E B25034_010E B25034_011E
+## 1          82         294          87          17           5           9
+## 2          24           7          57          28          29          76
+## 3         148          53          70         141          67          49
+## 4          32          48          56          45          24         144
+## 5          43          31          24          35          22          72
+## 6          46         110          61          24          25          68
+##   B25046_001E B27010_017E B27010_033E B27010_050E B27010_066E B28002_013E
+## 1         813           0          42          40           0         160
+## 2         505           7          42           7           7          45
+## 3        1399           0           2          15           0          58
+## 4         789           0          14          14          20          47
+## 5         561           0           0           0           0          48
+## 6         729           0           0          15           0          37
+##   C16002_004E C16002_007E C16002_010E C16002_013E B09019_005E B09019_008E
+## 1           0           0          53           0          79          49
+## 2           0           0           4           0          31          46
+## 3           0           0          15           0          61          54
+## 4           2           0           0          12          22          46
+## 5           0           0           1           0          32          21
+## 6           0           0          11           0          52          58
+##   B19101_001E C17002_002E C17002_003E C17002_004E C17002_005E C17002_006E
+## 1         330         211         140          38          15         210
+## 2         166          46           7           9          26          15
+## 3         403          47          55           1          39          74
+## 4         245          27         118          12          27         125
+## 5         176          24          41           0          69         265
+## 6         248          36          41          50          53          47
+##   C17002_007E B20005_002E B01001_003E B01001_004E B01001_005E B01001_006E
+## 1           3        &lt;NA&gt;          37          39          76          46
+## 2           1        &lt;NA&gt;           9           9          26           3
+## 3         101        &lt;NA&gt;          14          14          36          32
+## 4           0        &lt;NA&gt;           8          13          62          37
+## 5           0        &lt;NA&gt;           0         122           9           9
+## 6          32        &lt;NA&gt;          22          30          16           6
+##   B01001_020E B01001_021E state county  tract block group B05013_017E
+## 1          15          24    15    001 020100           1        &lt;NA&gt;
+## 2          14          16    15    001 020100           2        &lt;NA&gt;
+## 3          12          27    15    001 020100           3        &lt;NA&gt;
+## 4          19          13    15    001 020100           4        &lt;NA&gt;
+## 5           3           0    15    001 020202           1        &lt;NA&gt;
+## 6           9          26    15    001 020202           2        &lt;NA&gt;
+##   B05013_018E B05013_019E B16002_022E B16002_025E B01001_017E B01001_018E
+## 1        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          32           8
+## 2        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          33          10
+## 3        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         140           2
+## 4        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          41           0
+## 5        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          79           4
+## 6        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          26           9
+##   B01001_019E B01001_016E B16002_028E B16002_031E B16002_034E B16002_037E
+## 1          27          63        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 2          38           9        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 3          41          36        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 4          32          18        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 5          33          70        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 6          37          25        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+##   B01001_044E B01001_045E B01001_046E B01001_047E B01001_048E B01001_049E
+## 1           3           0          44          54           8          21
+## 2           5           9           8           5           5          29
+## 3          22          54          70          31           7          29
+## 4          19          39          10          18           4           2
+## 5          20           1          20          26           5           0
+## 6          16          32          22          31          11          19
+##   B02001_002E B02001_003E B02001_004E B02001_005E B02001_006E B02001_007E
+## 1         178           0          14         450         418          21
+## 2         222           2           0         125          28          69
+## 3         435           3           0         272          65           1
+## 4         146           0           0         310          70          36
+## 5         584          14           1         166         254          22
+## 6         242          13           0         328          34           4
+##   B02001_008E B25008_003E
+## 1         381         720
+## 2         156         103
+## 3         563         150
+## 4         534         256
+## 5         238         113
+## 6         402         244</code></pre>
+<pre class="r"><code># Drop duplicate columns (except GEO_ID) from cbg3
+duplicate_columns &lt;- intersect(names(cbg3), names(cbg))
+duplicate_columns &lt;- setdiff(duplicate_columns, &quot;GEO_ID&quot;)
+
+if (length(duplicate_columns) &gt; 0) {
+  message(&quot;Dropping duplicate columns: &quot;, paste(duplicate_columns, collapse = &quot;, &quot;))
+  cbg3 &lt;- cbg3[ , !(names(cbg3) %in% duplicate_columns)]
+}</code></pre>
+<pre><code>## Dropping duplicate columns: state, county, tract, block group</code></pre>
+<pre class="r"><code># Merge cbg (from previous step) with cbg3
+cbg &lt;- merge(cbg, cbg3, by = &quot;GEO_ID&quot;, all.x = TRUE, suffixes = c(&quot;&quot;, &quot;_3&quot;))
+
+# Quick check
+cat(&quot;Merged dataframe now has&quot;, nrow(cbg), &quot;rows and&quot;, ncol(cbg), &quot;columns\n&quot;)</code></pre>
+<pre><code>## Merged dataframe now has 1083 rows and 73 columns</code></pre>
+<pre class="r"><code>head(cbg)</code></pre>
+<pre><code>##                  GEO_ID
+## 1 1500000US150010201001
+## 2 1500000US150010201002
+## 3 1500000US150010201003
+## 4 1500000US150010201004
+## 5 1500000US150010202021
+## 6 1500000US150010202022
+##                                                        NAME B01001_001E
+## 1    Block Group 1; Census Tract 201; Hawaii County; Hawaii        1462
+## 2    Block Group 2; Census Tract 201; Hawaii County; Hawaii         602
+## 3    Block Group 3; Census Tract 201; Hawaii County; Hawaii        1339
+## 4    Block Group 4; Census Tract 201; Hawaii County; Hawaii        1096
+## 5 Block Group 1; Census Tract 202.02; Hawaii County; Hawaii        1279
+## 6 Block Group 2; Census Tract 202.02; Hawaii County; Hawaii        1023
+##   B25034_006E B25034_007E B25034_008E B25034_009E B25034_010E B25034_011E
+## 1          82         294          87          17           5           9
+## 2          24           7          57          28          29          76
+## 3         148          53          70         141          67          49
+## 4          32          48          56          45          24         144
+## 5          43          31          24          35          22          72
+## 6          46         110          61          24          25          68
+##   B25046_001E B27010_017E B27010_033E B27010_050E B27010_066E B28002_013E
+## 1         813           0          42          40           0         160
+## 2         505           7          42           7           7          45
+## 3        1399           0           2          15           0          58
+## 4         789           0          14          14          20          47
+## 5         561           0           0           0           0          48
+## 6         729           0           0          15           0          37
+##   C16002_004E C16002_007E C16002_010E C16002_013E B09019_005E B09019_008E
+## 1           0           0          53           0          79          49
+## 2           0           0           4           0          31          46
+## 3           0           0          15           0          61          54
+## 4           2           0           0          12          22          46
+## 5           0           0           1           0          32          21
+## 6           0           0          11           0          52          58
+##   B19101_001E C17002_002E C17002_003E C17002_004E C17002_005E C17002_006E
+## 1         330         211         140          38          15         210
+## 2         166          46           7           9          26          15
+## 3         403          47          55           1          39          74
+## 4         245          27         118          12          27         125
+## 5         176          24          41           0          69         265
+## 6         248          36          41          50          53          47
+##   C17002_007E B20005_002E B01001_003E B01001_004E B01001_005E B01001_006E
+## 1           3        &lt;NA&gt;          37          39          76          46
+## 2           1        &lt;NA&gt;           9           9          26           3
+## 3         101        &lt;NA&gt;          14          14          36          32
+## 4           0        &lt;NA&gt;           8          13          62          37
+## 5           0        &lt;NA&gt;           0         122           9           9
+## 6          32        &lt;NA&gt;          22          30          16           6
+##   B01001_020E B01001_021E state county  tract block group B05013_017E
+## 1          15          24    15    001 020100           1        &lt;NA&gt;
+## 2          14          16    15    001 020100           2        &lt;NA&gt;
+## 3          12          27    15    001 020100           3        &lt;NA&gt;
+## 4          19          13    15    001 020100           4        &lt;NA&gt;
+## 5           3           0    15    001 020202           1        &lt;NA&gt;
+## 6           9          26    15    001 020202           2        &lt;NA&gt;
+##   B05013_018E B05013_019E B16002_022E B16002_025E B01001_017E B01001_018E
+## 1        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          32           8
+## 2        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          33          10
+## 3        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         140           2
+## 4        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          41           0
+## 5        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          79           4
+## 6        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;          26           9
+##   B01001_019E B01001_016E B16002_028E B16002_031E B16002_034E B16002_037E
+## 1          27          63        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 2          38           9        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 3          41          36        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 4          32          18        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 5          33          70        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 6          37          25        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+##   B01001_044E B01001_045E B01001_046E B01001_047E B01001_048E B01001_049E
+## 1           3           0          44          54           8          21
+## 2           5           9           8           5           5          29
+## 3          22          54          70          31           7          29
+## 4          19          39          10          18           4           2
+## 5          20           1          20          26           5           0
+## 6          16          32          22          31          11          19
+##   B02001_002E B02001_003E B02001_004E B02001_005E B02001_006E B02001_007E
+## 1         178           0          14         450         418          21
+## 2         222           2           0         125          28          69
+## 3         435           3           0         272          65           1
+## 4         146           0           0         310          70          36
+## 5         584          14           1         166         254          22
+## 6         242          13           0         328          34           4
+##   B02001_008E B25008_003E P5_002N P5_003N P5_004N P5_005N P5_008N P5_009N
+## 1         381         720       0       0       0       0       0       0
+## 2         156         103       0       0       0       0       0       0
+## 3         563         150       0       0       0       0       0       0
+## 4         534         256       0       0       0       0       0       0
+## 5         238         113     320     320       0       0       0       0
+## 6         402         244       0       0       0       0       0       0
+##   P5_010N
+## 1       0
+## 2       0
+## 3      13
+## 4       0
+## 5       0
+## 6       0</code></pre>
+<pre class="r"><code>cbg[is.na(cbg)] &lt;- 0
+
+# Check if there are any nulls left
+print(any(is.na(cbg)))</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code># Loop over all columns
+for (colname in names(cbg)) {
+  # Try converting to numeric
+  numeric_col &lt;- suppressWarnings(as.numeric(cbg[[colname]]))
+  
+  # If there are no new NAs introduced, replace the column
+  if (!all(is.na(numeric_col) &amp; !is.na(cbg[[colname]]))) {
+    cbg[[colname]] &lt;- numeric_col
+  }
+}
+
+# Quick check: see the classes of all columns
+sapply(cbg, class)</code></pre>
+<pre><code>##      GEO_ID        NAME B01001_001E B25034_006E B25034_007E B25034_008E 
+## &quot;character&quot; &quot;character&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B25034_009E B25034_010E B25034_011E B25046_001E B27010_017E B27010_033E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B27010_050E B27010_066E B28002_013E C16002_004E C16002_007E C16002_010E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## C16002_013E B09019_005E B09019_008E B19101_001E C17002_002E C17002_003E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## C17002_004E C17002_005E C17002_006E C17002_007E B20005_002E B01001_003E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B01001_004E B01001_005E B01001_006E B01001_020E B01001_021E       state 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+##      county       tract block group B05013_017E B05013_018E B05013_019E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B16002_022E B16002_025E B01001_017E B01001_018E B01001_019E B01001_016E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B16002_028E B16002_031E B16002_034E B16002_037E B01001_044E B01001_045E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B01001_046E B01001_047E B01001_048E B01001_049E B02001_002E B02001_003E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+## B02001_004E B02001_005E B02001_006E B02001_007E B02001_008E B25008_003E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+##     P5_002N     P5_003N     P5_004N     P5_005N     P5_008N     P5_009N 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot; 
+##     P5_010N 
+##   &quot;numeric&quot;</code></pre>
+<pre class="r"><code># Check input fields first
+print(sapply(cbg[, c(&quot;C16002_004E&quot;, &quot;C16002_007E&quot;, &quot;C16002_010E&quot;, &quot;C16002_013E&quot;)], class))</code></pre>
+<pre><code>## C16002_004E C16002_007E C16002_010E C16002_013E 
+##   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;   &quot;numeric&quot;</code></pre>
+<pre class="r"><code>print(head(cbg[, c(&quot;C16002_004E&quot;, &quot;C16002_007E&quot;, &quot;C16002_010E&quot;, &quot;C16002_013E&quot;)], 10))</code></pre>
+<pre><code>##    C16002_004E C16002_007E C16002_010E C16002_013E
+## 1            0           0          53           0
+## 2            0           0           4           0
+## 3            0           0          15           0
+## 4            2           0           0          12
+## 5            0           0           1           0
+## 6            0           0          11           0
+## 7            0           0          25           0
+## 8            0           0           0           0
+## 9            7           0           7          81
+## 10           0           0          27           0</code></pre>
+<pre class="r"><code># Create a new column by summing other columns
+cbg$LimitedEnglishHH &lt;- cbg$C16002_004E + 
+                        cbg$C16002_007E + 
+                        cbg$C16002_010E + 
+                        cbg$C16002_013E
+
+# Preview the first few rows
+head(cbg$LimitedEnglishHH)</code></pre>
+<pre><code>## [1] 53  4 15 14  1 11</code></pre>
 </div>
 
 

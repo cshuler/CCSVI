@@ -17,15 +17,13 @@ for (pkg in required_packages) {
     library(pkg, character.only = TRUE)
   }
 }
-
 # Confirm
-cat("✅ All packages loaded successfully!\n")
+cat("All packages loaded successfully!\n")
 ```
 
 # Setup
 
-This notebook pulls Census data using the API and prepares it for later steps.  
-
+# This notebook pulls Census data using the API and prepares it for later steps.
 
 ```{r load packages and set up test}
 # Load required packages
@@ -43,26 +41,8 @@ census_raw <- fromJSON(content(res, "text"))
 head(census_raw)
 ```
 
-# test Get Census Data
-
-``` {r Test get Census Data}
-# Example URL for total population by state
-url <- "https://api.census.gov/data/2020/dec/pl?get=P1_001N,NAME&for=state:*"
-
-# Make request
-res <- GET(url)
-
-# Convert JSON to data frame
-census_raw <- fromJSON(content(res, "text"))
-
-# First row is headers → convert to data frame
-census_df <- as.data.frame(census_raw[-1,], stringsAsFactors = FALSE)
-names(census_df) <- census_raw[1,]
-
-head(census_df)
-```
-
 # Set up lists of variables for API Pull from Census
+
 ### Three pulls are required due to the number of variables and some being decennial specific
 
 ```{R Census variable setup}
@@ -98,41 +78,7 @@ decennial_variables3 <- c(
 )
 ```
 
-
-## Setup variable lookup pull 
-
-``` {R Setup URLs to pull lookups for human-readable variable names}
-# Detailed variable lookup URLs (converted from Python)
-census_fields_url1 <- paste0(census_combined_url, "/subject/variables.json")        # detailed variable lookup
-census_fields_url2 <- paste0(census_combined_url, "/subject/variables.json")# subject variable lookup with stats
-census_fields_url3 <- paste0(decennial_combined_url, "/variables.json")     # decennial variables lookup
-
-# Print full URLs so you can test them in a browser if desired
-cat("census_fields_url1:\n", census_fields_url1, "\n\n")
-cat("census_fields_url2:\n", census_fields_url2, "\n\n")
-cat("census_fields_url3:\n", census_fields_url3, "\n\n")
-```
-
-## Combine the variable lookups into one big lookup table
-
-```{R combine variable lookups}
-
-# Combine safely even if columns differ
-
-fields_df <- dplyr::bind_rows(fields_df1, fields_df2, fields_df3)
-
-cat("Fields (variables) data have been combined safely.\n")
-cat("Total rows:", nrow(fields_df), "\n")
-
-# Preview
-
-
-
-head(fields_df)
-```
-
-
-``` {R combine variables and generate URLs}
+```{R combine variables and generate URLs}
 # Collapse to comma-separated strings for the API 'get=' parameter
 census_variables1_str <- paste(census_variables1, collapse = ",")
 census_variables2_str <- paste(census_variables2, collapse = ",")
@@ -163,11 +109,13 @@ census_fields_url3 <- paste0(decennial_combined_url, "/variables.json")
 
 
 ```
-``` {R Print full URLs for testing}
+
+```{R Print full URLs for testing}
 cat("CBG URL 1:\n", cbg_url1, "\n\n")
 cat("CBG URL 2:\n", cbg_url2, "\n\n")
 cat("CBG URL 3:\n", cbg_url3, "\n\n")
 ```
+
 # Define FUNCTION to pull data JSON from Census API and store in lists
 
 ```{R Define fetch function}
@@ -190,80 +138,6 @@ fetch_census <- function(url) {
 }
 ```
 
-# Define FUNCTION to pull field list JSON from Census API and process to proper tabular format
-
-``` {R Define func_pull_json}
-# Load jsonlite once at the top of your script
-if (!requireNamespace("jsonlite", quietly = TRUE)) {
-  install.packages("jsonlite")
-}
-library(jsonlite)
-
-# Define the function
-func_pull_json <- function(url) {
-  jl <- jsonlite::fromJSON(url, simplifyVector = FALSE)  # keep nested structure as lists
-  vars <- jl$variables
-  if (is.null(vars) || length(vars) == 0) return(data.frame())
-  
-  var_names <- names(vars)
-  
-  # Replace any empty or NULL names with a placeholder
-  var_names[var_names == "" | is.na(var_names)] <- "unnamed_var"
-  
-  # collect all possible property names across every variable
-  all_props <- unique(unlist(lapply(vars, names)))
-  
-  out_rows <- vector("list", length(vars))
-  for (i in seq_along(vars)) {
-    el <- vars[[i]]
-    # replace NULL entries with NA
-    if (length(el) > 0) el[sapply(el, is.null)] <- NA
-    
-    # collapse any multi-element entries into a single string or JSON string for nested lists
-    el2 <- lapply(el, function(x) {
-      if (is.list(x)) {
-        jsonlite::toJSON(x, auto_unbox = TRUE)
-      } else if (length(x) > 1) {
-        paste(as.character(x), collapse = "; ")
-      } else {
-        if (is.null(x)) NA_character_ else as.character(x)
-      }
-    })
-    
-    # create a named character vector covering all_props (fill missing with NA)
-    rowvec <- setNames(rep(NA_character_, length(all_props)), all_props)
-    if (length(el2) > 0) rowvec[names(el2)] <- unlist(el2, use.names = TRUE)
-    # add the variable name as its own column (ensure it’s valid)
-    rowvec <- c(variable = var_names[i], rowvec)
-    
-    out_rows[[i]] <- as.data.frame(as.list(rowvec), stringsAsFactors = FALSE)
-  }
-  
-  # combine rows into one data.frame (all rows have the same columns now)
-  result_df <- do.call(rbind, out_rows)
-  rownames(result_df) <- NULL
-  return(result_df)
-}
-
-```
-
-## Define simpler FUNCTION to get Census field lookup data
-``` {R Define function func_get_fields}
-func_get_fields <- function(url) {
-  resp <- httr::GET(url)
-  vars <- jsonlite::fromJSON(content(resp, as = "text"), simplifyVector = FALSE)$variables
-  df <- do.call(rbind, lapply(names(vars), function(nm) {
-    row <- vars[[nm]]
-    row$name <- nm
-    as.data.frame(row, stringsAsFactors = FALSE)
-  }))
-  df
-}
-```
-
-
-
-
 ```{R Run function to pull data from Census API}
 # Fetch each dataset
 cbg1 <- fetch_census(cbg_url1)
@@ -280,7 +154,6 @@ cat("Rows in cbg3:", nrow(cbg3), "\n\n")
 head(cbg1[, 1:6])
 ```
 
-
 ## Merge first two dataframes into new one called cbg
 
 ```{r Merge Second DF with First, echo=TRUE}
@@ -294,19 +167,18 @@ if (length(duplicate_columns) > 0) {
 }
 
 # Merge cbg1 and cbg2 on GEO_ID
-cbg <- merge(cbg1, cbg2, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_2"))
+cbg_df <- merge(cbg1, cbg2, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_2"))
 
 # Quick check
-cat("Merged dataframe has", nrow(cbg), "rows and", ncol(cbg), "columns\n")
-head(cbg)
+cat("Merged dataframe has", nrow(cbg_df), "rows and", ncol(cbg_df), "columns\n")
+head(cbg_df)
 ```
-
 
 ## Merge third dataframe with existing one called cbg
 
-``` {R Merge Third DF with previously merged}
+```{R Merge Third DF with previously merged}
 # Drop duplicate columns (except GEO_ID) from cbg3
-duplicate_columns <- intersect(names(cbg3), names(cbg))
+duplicate_columns <- intersect(names(cbg3), names(cbg_df))
 duplicate_columns <- setdiff(duplicate_columns, "GEO_ID")
 
 if (length(duplicate_columns) > 0) {
@@ -315,85 +187,59 @@ if (length(duplicate_columns) > 0) {
 }
 
 # Merge cbg (from previous step) with cbg3
-cbg <- merge(cbg, cbg3, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_3"))
+cbg_df <- merge(cbg_df, cbg3, by = "GEO_ID", all.x = TRUE, suffixes = c("", "_3"))
 
 # Quick check
-cat("Merged dataframe now has", nrow(cbg), "rows and", ncol(cbg), "columns\n")
-head(cbg)
+cat("Merged dataframe now has", nrow(cbg_df), "rows and", ncol(cbg_df), "columns\n")
+head(cbg_df)
 ```
 
 ## Replace nulls in the dataframe with zeroes
 
-``` {R replace nulls with zeroes}
-cbg[is.na(cbg)] <- 0
+```{R replace nulls with zeroes}
+cbg_df[is.na(cbg_df)] <- 0
 
 # Check if there are any nulls left
-print(any(is.na(cbg)))
+print(any(is.na(cbg_df)))
 
 ```
 
-``` {R convert numbers in DF to actual numeric fields}
+```{R convert numbers in DF to actual numeric fields}
 # Loop over all columns
-for (colname in names(cbg)) {
+for (colname in names(cbg_df)) {
   # Try converting to numeric
-  numeric_col <- suppressWarnings(as.numeric(cbg[[colname]]))
+  numeric_col <- suppressWarnings(as.numeric(cbg_df[[colname]]))
   
   # If there are no new NAs introduced, replace the column
-  if (!all(is.na(numeric_col) & !is.na(cbg[[colname]]))) {
-    cbg[[colname]] <- numeric_col
+  if (!all(is.na(numeric_col) & !is.na(cbg_df[[colname]]))) {
+    cbg_df[[colname]] <- numeric_col
   }
 }
 
 # Quick check: see the classes of all columns
-sapply(cbg, class)
+sapply(cbg_df, class)
 ```
 
-
-## Get human readable variable names from API
-```{R get variable names from API}
-# Get and parse the variable lists from the Census API
-#fields_json1 <- jsonlite::fromJSON(census_fields_url1, flatten = TRUE)
-#fields_json2 <- jsonlite::fromJSON(census_fields_url2, flatten = TRUE)
-#fields_json3 <- jsonlite::fromJSON(census_fields_url3, flatten = TRUE)
-
-# Convert each "variables" section to data frames
-#fields_df1 <- as.data.frame(fields_json1$variables)
-#fields_df2 <- as.data.frame(fields_json2$variables)
-#fields_df3 <- as.data.frame(fields_json3$variables)
-
-fields_df1 <- func_get_fields(census_fields_url1)
-fields_df2 <- func_get_fields(census_fields_url2)
-fields_df3 <- func_get_fields(census_fields_url3)
-
-# Preview the first few rows of each
-cat("fields_df1 preview:\n")
-print(head(fields_df1))
-cat("\nfields_df2 preview:\n")
-print(head(fields_df2))
-cat("\nfields_df3 preview:\n")
-print(head(fields_df3))
-```
-
-
-## Create and calculate field for Limited English Speaking  Households
+## Create and calculate field for Limited English Speaking Households
 
 ```{R create and calculate LimitedEnglishH field}
 
 # Check input fields first
-print(sapply(cbg[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], class))
-print(head(cbg[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], 10))
+print(sapply(cbg_df[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], class))
+print(head(cbg_df[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], 10))
 
 # Create a new column by summing other columns
-cbg$LimitedEnglishHH <- cbg$C16002_004E + 
+cbg_df$LimitedEnglishHH <- cbg$C16002_004E + 
                         cbg$C16002_007E + 
                         cbg$C16002_010E + 
                         cbg$C16002_013E
 
 # Preview the first few rows
-head(cbg$LimitedEnglishHH)
+head(cbg_df$LimitedEnglishHH)
 ```
 
-## Create \output\ folder
+## Create \output folder
+
 ```{R create output folder}
 output_folder_path <- file.path(getwd(), "output")
 
@@ -407,55 +253,36 @@ if (!dir.exists(output_folder_path)) {
 
 ```
 
-``` {R generate names for CSV files}
+```{R generate names for CSV files}
 # Define output file names
-fields_table_name <- "census_variables"
-cbg_table_name <- "census_cbg_data"
+cbg_table_name <- "census_data"
 
 # (Optional) show full file paths
-fields_csv_path <- file.path(output_folder_path, paste0(fields_table_name, ".csv"))
 cbg_csv_path <- file.path(output_folder_path, paste0(cbg_table_name, ".csv"))
 
-cat("Fields CSV path:", fields_csv_path, "\n")
+
 cat("CBG CSV path:", cbg_csv_path, "\n")
 ```
 
-``` {R save CSV files for data}
+```{R save CSV files for data}
 # Build full CSV file path
 cbg_csv_path <- file.path(output_folder_path, paste0(cbg_table_name, ".csv"))
 
 # Write dataframe to CSV
-write.csv(cbg, cbg_csv_path, row.names = FALSE, fileEncoding = "UTF-8")
+write.csv(cbg_df, cbg_csv_path, row.names = FALSE, fileEncoding = "UTF-8")
 
 cat("CSV file created successfully:", cbg_csv_path, "\n")
 ```
 
-``` {R save variable lookup list to CSV}
-# Build the full output path for the fields CSV
-fields_csv_path <- file.path(output_folder_path, paste0(fields_table_name, ".csv"))
-
-# Write the combined fields data frame to CSV
-write.csv(fields_df, fields_csv_path, row.names = FALSE, fileEncoding = "UTF-8")
-
-cat("CSV file created successfully:", fields_csv_path, "\n")
-```
-
-``` {R save variable lookup list to SQLite database}
-# Ensure packages are available
-if (!require(DBI)) install.packages("DBI")
-if (!require(RSQLite)) install.packages("RSQLite")
-
-library(DBI)
-library(RSQLite)
-
+``` {R save Census data to SQLite database}
 # Define the database path
-sqlite_path <- file.path(output_folder_path, "census_variables.sqlite")
+sqlite_path <- file.path(output_folder_path, "census_data.sqlite")
 
 # Connect to (or create) the SQLite database
 conn <- dbConnect(RSQLite::SQLite(), sqlite_path)
 
 # Write the table (overwrite if it exists)
-dbWriteTable(conn, "census_variables", fields_df, overwrite = TRUE)
+dbWriteTable(conn, "census_data", cbg_df, overwrite = TRUE)
 
 # Optionally list tables to confirm
 cat("Tables in database:\n")

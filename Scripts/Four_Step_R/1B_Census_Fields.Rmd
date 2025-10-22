@@ -1,0 +1,133 @@
+---
+title: "01B Census Fields"
+output: html_document
+date: "2025-10-21"
+---
+
+# Check for packages and install them if not already installed
+
+```{r setup, message=FALSE}
+# List all packages needed for this notebook
+required_packages <- c("httr", "jsonlite", "dplyr", "DBI", "RSQLite")
+
+# Check if each one is installed, and install it if missing
+for (pkg in required_packages) {
+  if (!require(pkg, character.only = TRUE)) {
+    install.packages(pkg)
+    library(pkg, character.only = TRUE)
+  }
+}
+# Confirm
+cat("All packages loaded successfully!\n")
+```
+
+## Define a simple FUNCTION to get Census field lookup data
+``` {R Define function func_get_fields}
+func_get_fields <- function(url) {
+  resp <- httr::GET(url)
+  if (resp$status_code != 200) {
+    stop(paste("Request failed with status", resp$status_code))
+  }
+  
+  vars <- jsonlite::fromJSON(httr::content(resp, as = "text"), simplifyVector = FALSE)$variables
+  
+  df <- do.call(rbind, lapply(names(vars), function(nm) {
+    row <- vars[[nm]]
+    # Keep only the relevant fields
+    label <- if (!is.null(row$label)) row$label else NA
+    concept <- if (!is.null(row$concept)) row$concept else NA
+    data.frame(
+      name = nm,
+      label = label,
+      concept = concept,
+      stringsAsFactors = FALSE
+    )
+  }))
+  
+  rownames(df) <- NULL
+  return(df)
+}
+
+```
+
+## Setup URLs for variable lookup pull 
+
+``` {R Setup URLs to pull lookups for human-readable variable names}
+# Detailed variable lookup URLs (converted from Python)
+census_fields_url1 <- paste0(census_combined_url, "/variables.json")        # detailed variable lookup
+census_fields_url2 <- paste0(census_combined_url, "/subject/variables.json")# subject variable lookup with stats
+census_fields_url3 <- paste0(decennial_combined_url, "/variables.json")     # decennial variables lookup
+
+# Print full URLs so you can test them in a browser if desired
+cat("census_fields_url1:\n", census_fields_url1, "\n\n")
+cat("census_fields_url2:\n", census_fields_url2, "\n\n")
+cat("census_fields_url3:\n", census_fields_url3, "\n\n")
+```
+
+## Get human readable variable names from API
+```{R get variable names from API}
+
+fields_df1 <- func_get_fields(census_fields_url1)
+fields_df2 <- func_get_fields(census_fields_url2)
+fields_df3 <- func_get_fields(census_fields_url3)
+
+# Preview the first few rows of each
+cat("fields_df1 preview:\n")
+print(head(fields_df1))
+cat("\nfields_df2 preview:\n")
+print(head(fields_df2))
+cat("\nfields_df3 preview:\n")
+print(head(fields_df3))
+```
+
+
+## Combine the variable lookups into one big lookup table
+
+```{R combine variable lookups}
+
+# Combine safely even if columns differ
+
+fields_df <- dplyr::bind_rows(fields_df1, fields_df2, fields_df3)
+
+cat("Fields (variables) data have been combined safely.\n")
+cat("Total rows:", nrow(fields_df), "\n")
+
+# Preview
+
+head(fields_df)
+```
+
+``` {R save variable lookup list to CSV}
+
+# Create table name for variables
+fields_table_name <- "census_variables"
+
+# Build the full output path for the fields CSV
+fields_csv_path <- file.path(output_folder_path, paste0(fields_table_name, ".csv"))
+cat("Fields CSV path:", fields_csv_path, "\n")
+
+# Write the combined fields data frame to CSV
+write.csv(fields_df, fields_csv_path, row.names = FALSE, fileEncoding = "UTF-8")
+
+cat("CSV file created successfully:", fields_csv_path, "\n")
+```
+
+``` {R save variable lookup list to SQLite database}
+# Define the database path
+sqlite_path <- file.path(output_folder_path, "census_variables.sqlite")
+
+# Connect to (or create) the SQLite database
+conn <- dbConnect(RSQLite::SQLite(), sqlite_path)
+
+# Write the table (overwrite if it exists)
+dbWriteTable(conn, "census_variables", fields_df, overwrite = TRUE)
+
+# Optionally list tables to confirm
+cat("Tables in database:\n")
+print(dbListTables(conn))
+
+# Disconnect
+dbDisconnect(conn)
+
+cat("SQLite database created successfully:", sqlite_path, "\n")
+```
