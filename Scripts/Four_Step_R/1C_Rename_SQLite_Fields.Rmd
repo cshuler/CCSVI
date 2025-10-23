@@ -1,0 +1,83 @@
+---
+title: "1C Rename fields like B002922__Field_Description_That_Humans_Understand"
+output: html_notebook
+date: "2025-10-22"
+---
+
+``` {R Import libraries and set up variables}
+# ---- Setup ----
+library(DBI)
+library(RSQLite)
+library(dplyr)
+
+# Define paths (relative to notebook folder)
+output_folder_path <- "output"
+data_db_path <- file.path(output_folder_path, "census_data.sqlite")
+vars_db_path <- file.path(output_folder_path, "census_variables.sqlite")
+
+# ---- Connect to databases ----
+conn_data <- dbConnect(SQLite(), data_db_path)
+conn_vars <- dbConnect(SQLite(), vars_db_path)
+
+
+```
+
+``` {R Read data from SQLite DBs}
+
+# ---- Read variable lookup ----
+vars_df <- dbReadTable(conn_vars, "census_variables")
+
+# Expecting columns: "name" (variable id) and "label" (human-readable label)
+if (!all(c("name", "label") %in% colnames(vars_df))) {
+  stop("The census_variables table must contain columns named 'name' and 'label'.")
+}
+
+# ---- Select your data table ----
+# Replace 'census_data' with the actual table name in your census_data.sqlite
+tables <- dbListTables(conn_data)
+print(paste("Available tables in census_data.sqlite:", paste(tables, collapse = ", ")))
+data_table <- tables[1]  # assumes first table if only one
+
+# ---- Get current column names ----
+col_info <- dbGetQuery(conn_data, paste0("PRAGMA table_info(", data_table, ");"))
+current_cols <- col_info$name
+
+# ---- Clean label text to form valid SQLite names ----
+sanitize_name <- function(x) {
+  # Replace spaces and punctuation with underscores
+  x <- gsub("[^A-Za-z0-9_]", "_", x)
+  # Collapse multiple underscores
+  x <- gsub("_+", "_", x)
+  # Trim leading/trailing underscores
+  x <- gsub("^_|_$", "", x)
+  return(x)
+}
+```
+
+``` {R Loop through columns and rename}
+# ---- Loop through columns and rename ----
+for (col in current_cols) {
+  match_row <- vars_df %>% filter(name == col)
+  if (nrow(match_row) == 1 && !is.na(match_row$label)) {
+    new_name <- paste0(col, "__", sanitize_name(match_row$label))
+    
+    # Only rename if different
+    if (new_name != col) {
+      sql <- sprintf("ALTER TABLE %s RENAME COLUMN \"%s\" TO \"%s\";", data_table, col, new_name)
+      cat("Renaming:", col, "→", new_name, "\n")
+      dbExecute(conn_data, sql)
+    }
+  } else {
+    cat("No label found for column:", col, "- skipping.\n")
+  }
+}
+```
+
+``` {R Finish up}
+# ---- Done ----
+cat("All matching columns have been renamed in place.\n")
+
+# Disconnect
+dbDisconnect(conn_data)
+dbDisconnect(conn_vars)
+```
