@@ -54,7 +54,8 @@ decennial_dataset_url <- "data/2020/dec/pl"
 
 # Variables as vectors (easier to edit than a long single string)
 census_variables1 <- c(
-  "GEO_ID","NAME","B01001_001E","B25034_006E","B25034_007E","B25034_008E",
+  "GEO_ID","NAME","B01001_001E","B25034_001E","B25034_002E","B25034_003E",
+  "B25034_004E","B25034_005E","B25034_006E","B25034_007E","B25034_008E",
   "B25034_009E","B25034_010E","B25034_011E","B25046_001E","B27010_017E",
   "B27010_033E","B27010_050E","B27010_066E","B28002_013E","C16002_004E",
   "C16002_007E","C16002_010E","C16002_013E","B09019_005E","B09019_008E",
@@ -174,7 +175,7 @@ cat("Merged dataframe has", nrow(cbg_df), "rows and", ncol(cbg_df), "columns\n")
 head(cbg_df)
 ```
 
-## Merge third dataframe with existing one called cbg
+## Merge third dataframe with existing one called cbg_df
 
 ```{R Merge Third DF with previously merged}
 # Drop duplicate columns (except GEO_ID) from cbg3
@@ -229,10 +230,10 @@ print(sapply(cbg_df[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013
 print(head(cbg_df[, c("C16002_004E", "C16002_007E", "C16002_010E", "C16002_013E")], 10))
 
 # Create a new column by summing other columns
-cbg_df$LimitedEnglishHH <- cbg$C16002_004E + 
-                        cbg$C16002_007E + 
-                        cbg$C16002_010E + 
-                        cbg$C16002_013E
+cbg_df$LimitedEnglishHH <- cbg_df$C16002_004E + 
+                        cbg_df$C16002_007E + 
+                        cbg_df$C16002_010E + 
+                        cbg_df$C16002_013E
 
 # Preview the first few rows
 head(cbg_df$LimitedEnglishHH)
